@@ -1,0 +1,32 @@
+
+<!-- Preloader -->
+<div id="preloader">
+  <div id="load"></div>
+</div>
+
+<!-- Section: intro -->
+<section id="intro" class="intro animated fadeInUp">
+  <div class="dark-screen animated delay3s fadeIn"></div>
+	<div class="intro-message animated fadeIn delay4s">
+	  <h1>さぁ 願いをいえ</h1>
+    <h1>どんな願いも１つだけかなえてやろう</h1>
+	</div>
+</section>
+<!-- /Section: intro -->
+
+<div id="signup" class="hidden">
+  <div class="metal radial">
+    <div class="rader-bg">
+      <div class="center-cross"></div>
+      <div class="intro-ball ball1"></div>
+      <div class="intro-ball ball2"></div>
+      <div class="intro-ball ball3"></div>
+      <div class="intro-ball ball4"></div>
+      <div class="intro-ball ball5"></div>
+      <div class="intro-ball ball6"></div>
+      <div class="intro-ball ball7"></div>
+      <h1 class="signup-message"><%= I18n.t('static_pages.welcome_message') %></h1>
+      <%= link_to "#{I18n.t('static_pages.sign_up_now')}", signup_path, class: "btn btn-lg btn-primary btn-signup" %>
+    </div>
+  </div>
+</div>

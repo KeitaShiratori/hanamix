@@ -1,0 +1,16 @@
+#rader{
+  width: 800px; 
+  height: 800px;
+}
+
+#rader-frame{
+  position: absolute;
+  left: 14px;
+  top: 0px;
+  width: 802px;
+  height: 802px;
+  z-index: 1;
+  pointer-events: none;
+  
+  background-image: url("rader-frame.png");
+}

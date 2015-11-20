@@ -1,0 +1,319 @@
+/* loader */
+
+#preloader {
+  background: #ffffff;
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+#loaderInner {
+  background: #ffffff url(../img/spinner.gif) center center no-repeat;
+  height: 60px;
+  left: 50%;
+  margin: -50px 0 0 -50px;
+  position: absolute;
+  top: 50%;
+  width: 60px;
+}
+
+@keyframes boxSpin {
+  0% {
+    transform: translate(-10px, 0px);
+  }
+
+  25% {
+    transform: translate(10px, 10px);
+  }
+
+  50% {
+    transform: translate(10px, -10px);
+  }
+
+  75% {
+    transform: translate(-10px, -10px);
+  }
+
+  100% {
+    transform: translate(-10px, 10px);
+  }
+}
+
+
+@keyframes shadowSpin {
+  0% {
+    box-shadow: 10px -10px #39CCCC, -10px 10px #FFDC00;
+  }
+
+  25% {
+    box-shadow: 10px 10px #39CCCC, -10px -10px #FFDC00;
+  }
+
+  50% {
+    box-shadow: -10px 10px #39CCCC, 10px -10px #FFDC00;
+  }
+
+  75% {
+    box-shadow: -10px -10px #39CCCC, 10px 10px #FFDC00;
+  }
+
+  100% {
+    box-shadow: 10px -10px #39CCCC, -10px 10px #FFDC00;
+  }
+}
+
+#load {
+  z-index: 9999;
+  background-color: #FF4136;
+  opacity: 0.75;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  margin: -5px auto 0 auto;
+  left: 0;
+  right: 0;
+  border-radius: 0px;
+  border: 5px solid #FF4136;
+  box-shadow: 10px 0px #39CCCC, 10px 0px #01FF70;
+  animation: shadowSpin 1s ease-in-out infinite;
+}
+
+.intro {
+  margin-top: -60px;
+  
+	width:100%;
+	height: 100vh;
+	position:relative;
+	background: url("intro.jpg") no-repeat top center;
+}
+
+.dark-screen {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+ 
+  width: 100%;
+ 	height: 100vh;
+
+  background-color: rgba(0,0,0,.5);
+  z-index: 1;
+}
+
+.intro-message {
+  position: absolute;
+  width: 100%;
+  top: 35vh;
+  font-size: 2.2em;
+  
+  color: #eee;
+  z-index: 2;
+  background-color: rgba(0,0,0,.3);
+}
+
+/* signup ------------------------- */
+#signup{
+  font-size: 2.2em;
+  padding-top: 30px;
+  margin-top: -60px;
+}
+
+.metal {
+  position: relative;
+  margin: 40px auto;
+  outline: none;
+  text-align: center;
+  color: hsla(0, 0%, 20%, 1);
+  text-shadow: hsla(0, 0%, 40%, 0.5) 0 -1px 0, hsla(0, 0%, 100%, 0.6) 0 2px 1px;
+  background-color: hsl(0, 0%, 90%);
+  /* outer HL */
+  transition: color .2s;
+}
+
+/* Radial ------------------------- */
+
+.radial {
+  $w: 800px;
+  width: $w;
+  height: $w;
+  line-height: 160px;
+  border-radius: $w / 2;
+  background-image: -webkit-radial-gradient(50% 0%, 8% 50%, hsla(0, 0%, 100%, 0.5) 0%, hsla(0, 0%, 100%, 0) 100%),
+                    -webkit-radial-gradient(50% 100%, 12% 50%, hsla(0, 0%, 100%, 0.6) 0%, hsla(0, 0%, 100%, 0) 100%),
+                    -webkit-radial-gradient(0% 50%, 50% 7%, hsla(0, 0%, 100%, 0.5) 0%, hsla(0, 0%, 100%, 0) 100%),
+                    -webkit-radial-gradient(100% 50%, 50% 5%, hsla(0, 0%, 100%, 0.5) 0%, hsla(0, 0%, 100%, 0) 100%),
+                    -webkit-repeating-radial-gradient(50% 50%, 100% 100%, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0) 3%, hsla(0, 0%, 0%, 0.1) 3.5%),
+                    -webkit-repeating-radial-gradient(50% 50%, 100% 100%, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 100%, 0) 6%, hsla(0, 0%, 100%, 0.1) 7.5%),
+                    -webkit-repeating-radial-gradient(50% 50%, 100% 100%, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 100%, 0) 1.2%, hsla(0, 0%, 100%, 0.2) 2.2%), 
+                    -webkit-radial-gradient(50% 50%, 200% 50%, hsla(0, 0%, 90%, 1) 5%, hsla(0, 0%, 85%, 1) 30%, hsla(0, 0%, 60%, 1) 100%);
+
+  &:before, &:after {
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    /* fake conical gradients */
+    background-image: -webkit-radial-gradient(50% 0%, 10% 50%, hsla(0, 0%, 0%, 0.1) 0%, hsla(0, 0%, 0%, 0) 100%),
+                      -webkit-radial-gradient(50% 100%, 10% 50%, hsla(0, 0%, 0%, 0.1) 0%, hsla(0, 0%, 0%, 0) 100%),
+                      -webkit-radial-gradient(0% 50%, 50% 10%, hsla(0, 0%, 0%, 0.1) 0%, hsla(0, 0%, 0%, 0) 100%),
+                      -webkit-radial-gradient(100% 50%, 50% 6%, hsla(0, 0%, 0%, 0.1) 0%, hsla(0, 0%, 0%, 0) 100%);
+  }
+  &:before {
+    transform: rotate(65deg);
+  }
+  &:after {
+    transform: rotate(-65deg);
+  }
+}
+
+.rader-bg{
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  
+  $w: 720px;
+  width: $w;
+  height: $w;
+  border-radius: $w / 2;
+  
+  box-shadow: rgba(113, 135, 113, 0.65) -3px 3px 3px 5px;
+  -webkit-box-shadow: rgba(113, 135, 113, 0.65) -3px 3px 3px 5px;
+  -moz-box-shadow: rgba(113, 135, 113, 0.65) -3px 3px 3px 3px;
+
+  background-color: rgba(0, 50, 0, .9);
+  
+  /* グリッド線 */
+  background-image:
+    linear-gradient(
+      transparent 95%,
+      rgba(50, 205, 50, 0.8) 5%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 95%,
+      rgba(50, 205, 50, 0.8) 5%
+    );
+  background-size: 20px 20px;
+  background-repeat: repeat;
+
+  /* レーダー中心の十字 */
+  .center-cross{
+    width: 8px; /*その要素自身の幅を、高さの1/4に指定。*/
+    height: 32px;
+
+    position: absolute;
+    top: 344px;
+    left: 355px;
+
+    background:rgb(200, 80, 80);
+  }
+  .center-cross::before {
+    content:"";	/*before疑似要素のcontent*/
+    display:block;	/*ブロック化*/
+    width:100%;	/*幅と高さを100%に*/
+    height:100%;
+    /*90度回転。回転の基準点はデフォルトで中心なので指定しない*/
+    -moz-transform:rotate(90deg);
+    -webkit-transform:rotate(90deg);
+    background: rgb(200,80,80);
+  }
+
+  /* ボールの反応 */
+  .intro-ball{
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+    border-radius: 12px;
+
+    background: rgba(240, 240, 12, .8);
+    box-shadow: rgba(240, 240, 12, .4) 0px 0px 2px 1px;
+    -webkit-box-shadow: rgba(240, 240, 12, .4) 0px 0px 2px 1px;
+    -moz-box-shadow: rgba(240, 240, 12, .4) 0px 0px 2px 1px;
+    
+    animation-name: ball-flash;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+  }
+  
+  .ball1{
+    top: 205px;
+    left: 125px;
+  }
+
+  .ball2{
+    top: 465px;
+    left: 207px;
+  }
+
+  .ball3{
+    top: 513px;
+    left: 640px;
+  }
+
+  .ball4{
+    top: 671px;
+    left: 439px;
+  }
+
+  .ball5{
+    top: 85px;
+    left: 535px;
+  }
+
+  .ball6{
+    top: 65px;
+    left: 385px;
+  }
+  
+  .ball7{
+    top: 331px;
+    left: 306px;
+  }
+  
+  @keyframes ball-flash {
+    0% {
+  		-webkit-transform: scale(1.0);
+  		opacity: 0.9;
+    }
+    80% {
+  		-webkit-transform: scale(1.0);
+  		opacity: 0.9;
+    }
+    100% {
+  		-webkit-transform: scale(0.8);
+  		opacity: 0.2;
+    }
+  }
+}
+
+.signup-message{
+  margin-top: 100px;
+  padding: 20px 0px;
+  background-color: rgba(255,255,255,.3);
+}
+
+.btn-signup{
+  margin-top: -80px;
+  font-size: 2.2em;
+  background-color: #ffa500; //orange
+  border-color: #ff8c00; //dark-orange
+
+  &:hover{
+    background-color: #ff8c00; //orange
+    border-color: #d2691e; //chocolate
+  }
+}
+
+input[type="checkbox"] {
+  width: 30px;
+}

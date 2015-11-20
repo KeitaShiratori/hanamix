@@ -1,0 +1,23 @@
+#app/config/locales/models/ja.yml
+ja:
+  activerecord:
+    models:
+      user: ユーザ
+      micropost: つぶやき
+      relationship: フォロー管理
+      retweet: リツイート
+    attributes:
+      user:
+        name: ユーザ名
+        email: メールアドレス
+        password_digest: パスワード
+        description: 紹介文
+        location: 場所
+      micropost:
+        user_id: ユーザ
+        content : つぶやき
+      relationship:
+        follower_id: フォローしているユーザ
+        followed_id: フォローされているユーザ
+        
+      

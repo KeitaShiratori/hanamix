@@ -1,0 +1,71 @@
+---
+ja:
+  static_pages:
+    welcome_message: つかもうぜ！ドラゴンボール！
+    sign_up_now: ユーザ登録
+  search:
+    user_or_microposts: ラウンドを検索
+  layouts:
+    home: ホーム
+    my_page: マイページ
+    rounds: ラウンド一覧
+    new_round: ラウンド登録
+    edit_round: ラウンド編集
+    round: ラウンド詳細
+    account: アカウント
+    settings: 設定
+    search: 検索
+    other_page: のページ
+    log_in: ログイン
+    log_out: ログアウト
+    sign_up: 新規ユーザ登録
+  users:
+    sign_up:
+      name: ユーザ名
+      email: ログイン用メールアドレス（非公開）
+      password: ログイン用パスワード
+      confirmation: パスワード確認
+      submit: 登録
+    log_in:
+      email: メールアドレス
+      password: パスワード
+      submit: ログイン
+      new_user : 新規ユーザ登録は
+      sign_up_now: コチラ
+    side_bar:
+      micropost: つぶやき
+      genki: ゲンキ
+      settings: 設定
+      whats_happening: 地球のみんな、オラに元気を分けてくれ！！
+      submit: つぶやく
+    micropost_list:
+      posted: ""
+      ago: 前
+      genki: ゲンキ
+      delete: 削除
+      you_sure: 削除してもよろしいですか？
+      unretweet: リツイート済
+      retweet: リツイート
+      cancel: ゲンキ済
+      feed:
+        tab_name: タイムライン
+        no_item: あなたがフォローしたユーザのつぶやきとリツイートが表示されます
+      micropost:
+        tab_name: つぶやき履歴
+        no_item: あなたのつぶやき履歴が表示されます
+      following: 
+        tab_name: フォロー中
+        no_item: あなたがフォローしたユーザが表示されます
+      followers: 
+        tab_name: フォロワー
+        no_item: あなたをフォローしたユーザが表示されます
+    follow: 
+      follow: フォローする
+      cancel: フォロー済
+    index:
+      users:
+        tab_name: ユーザ
+        no_item: 条件に一致するユーザが見つかりませんでした
+      microposts:
+        tab_name: つぶやき
+        no_item: 条件に一致する つぶやきが見つかりませんでした

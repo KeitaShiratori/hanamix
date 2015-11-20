@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-4">
+    <%= render 'shared/round_card', round: @round %>
+    <button class="default-button zoom-up">zoom up</button>
+    <button class="default-button zoom-out">zoom out</button>
+    <button class="default-button get-ball">get ball</button>
+    <button class="default-button currentpos">currentpos</button>
+    <p id="zoomlevel">zoomlevel</p>
+    <p id="ball1" class="hidden">イーシンチュウ</p>
+    <p id="ball2" class="hidden">アルシンチュウ</p>
+    <p id="ball3" class="hidden">サンシンチュウ</p>
+    <p id="ball4" class="hidden">スーシンチュウ</p>
+    <p id="ball5" class="hidden">ウーシンチュウ</p>
+    <p id="ball6" class="hidden">リュウシンチュウ</p>
+    <p id="ball7" class="hidden">チーシンチュウ</p>
+  </div>
+  <div class="col-md-8">
+    <%= render 'shared/rader' %>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+  <!--jsのボタンイベントで利用する変数（読み込み順の関係で、初期処理時に使う変数は渡せない）-->
+  window.round_id = <%= @round.id %>;
+  window.user_id = <%= @user.id %>;
+<% end %>
+
+<script>
+  $(".nav_menu").removeClass("active");
+  $("#round").removeClass("hidden").addClass("active"); 
+</script>

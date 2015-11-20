@@ -1,0 +1,11 @@
+<% if logged_in? %>
+  <%= render 'login_home' %>
+<% else %>
+  </div>  <!--application.htmlで設定したcontainerを閉じるタグ-->
+  <%= render 'guest_home' %>
+<% end %>
+
+<script>
+  $(".header_nav").removeClass("active");
+  $("#home").addClass("active");
+</script>

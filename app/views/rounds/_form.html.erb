@@ -1,0 +1,46 @@
+<button class="default-button sample">test</button>
+<p class="sample-text">sample</p>
+
+<%= form_for(@round) do |f| %>
+  <% if @round.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@round.errors.count, "error") %> prohibited this round from being saved:</h2>
+
+      <ul>
+      <% @round.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :start_at %><br>
+    <%= f.datetime_select :start_at %>
+  </div>
+  <div class="field">
+    <%= f.label :end_at %><br>
+    <%= f.datetime_select :end_at %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :balls, id: 'balls' %>
+    <%= f.password_field :ball1, id: 'ball-1', class: 'hidden' %>
+    <%= f.password_field :ball2, id: 'ball-2', class: 'hidden' %>
+    <%= f.password_field :ball3, id: 'ball-3', class: 'hidden' %>
+    <%= f.password_field :ball4, id: 'ball-4', class: 'hidden' %>
+    <%= f.password_field :ball5, id: 'ball-5', class: 'hidden' %>
+    <%= f.password_field :ball6, id: 'ball-6', class: 'hidden' %>
+    <%= f.password_field :ball7, id: 'ball-7', class: 'hidden' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

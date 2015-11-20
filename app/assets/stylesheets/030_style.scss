@@ -1,0 +1,212 @@
+$orange: #ffa500;
+$dark-orange: #ff8c00;
+$chocolate: #d2691e;
+$brown: #a52a2a;
+$maroon: #800000;
+
+/* navigation_header */
+#navigation_header{
+  font-size: 1.4em;
+  background-color: rgba(255,165,0, 0.4);
+  .active{
+    border-bottom: inset;
+    border-color: #ffa500;
+  }
+}
+
+.navbar-custom {
+  ul.nav li a {
+    font-size: 1em;
+    letter-spacing: 1px;
+    color: $maroon;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  &.top-nav-collapse ul.nav li a {
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    color: #fff;
+  }
+  ul.nav ul.dropdown-menu {
+    border-radius: 0;
+    li {
+      &:last-child {
+        border-bottom: none;
+      }
+      a {
+        padding: 10px 20px;
+      }
+    }
+  }
+  &.top-nav-collapse ul.nav ul.dropdown-menu li a {
+    color: #666;
+  }
+  .nav li a {
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    &:hover, &:focus {
+      background-color: rgba(0, 0, 0, 0);
+      border-bottom: inset;
+      border-color: #ffa500;
+    }
+  }
+}
+
+.navbar-toggle {
+  padding: 4px 6px;
+  font-size: 1em;
+  color: #fff;
+  &:focus, &:active {
+    outline: 0;
+  }
+}
+
+.navbar-custom.top-nav-collapse {
+  background: #ffa500;
+  .nav.navbar-nav {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  ul.nav {
+    li a {
+      -webkit-transition: all .2s ease-in-out;
+      -moz-transition: all .2s ease-in-out;
+      transition: all .2s ease-in-out;
+      color: #fff;
+    }
+    ul.dropdown-menu li a {
+      color: #666;
+    }
+  }
+}
+
+/* ===========================
+--- Elements
+============================ */
+
+.btn {
+  border-radius: 0;
+  text-transform: uppercase;
+  font-family: Montserrat,sans-serif;
+  font-weight: 400;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.btn-circle {
+  width: 70px;
+  height: 70px;
+  margin-top: 15px;
+  padding: 7px 16px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  font-size: 2.4em;
+  color: #fff;
+  background: 0 0;
+  -webkit-transition: background .3s ease-in-out;
+  -moz-transition: background .3s ease-in-out;
+  transition: background .3s ease-in-out;
+  &.btn-dark {
+    border: 2px solid #666;
+    color: #666;
+  }
+  &:hover, &:focus {
+    outline: 0;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  &.btn-dark {
+    :hover, :focus {
+      outline: 0;
+      color: #999;
+      background: #fff;
+    }
+    :hover i, :focus i {
+      color: #999;
+    }
+  }
+}
+
+.page-scroll .btn-circle {
+  i.animated {
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 1s;
+  }
+  &:hover i.animated {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+
+@-moz-keyframes pulse {
+  0% {
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+
+.btn-skin {
+  &:hover, &:focus, &:active, &.active {
+    color: #fff;
+    background-color: #666;
+    border-color: #666;
+  }
+}
+
+.btn-default {
+  &:hover, &:focus {
+    border: 1px solid #28c3ab;
+    outline: 0;
+    color: #000;
+    background-color: #28c3ab;
+  }
+}
+
+.btn-huge {
+  padding: 25px;
+  font-size: 1.8em;
+}
+
+.banner-social-buttons {
+  margin-top: 0;
+}
+

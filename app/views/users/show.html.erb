@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-4">
+    <%= render 'shared/user_card' %>
+  </div>
+  <div class="col-md-8">
+  </div>
+</div>
+
+<script>
+  $(".nav_menu").removeClass("active");
+  <% if current_user == @user %>
+    $("#my_page").addClass("active"); 
+  <% else %>
+    $("#other_page").removeClass("hidden").addClass("active"); 
+  <% end %>
+</script>

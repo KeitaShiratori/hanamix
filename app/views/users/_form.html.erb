@@ -1,0 +1,34 @@
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %> 
+  
+  <h2 class="page-header">
+    User Profile
+  </h2>
+    
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, placeholder:"自己紹介 (MAX 500文字)" %>
+  
+  <%= f.label :location %>
+  <%= f.text_area :location, placeholder:"場所 (MAX 100文字)" %>
+
+  <h2 class="page-header">
+    Password
+  </h2>
+  
+  <%= f.label :old_password %>
+  <%= f.password_field :old_password %>
+
+  <%= f.label :password%>
+  <%= f.password_field :password %>
+  
+  <%= f.label :password_confirmation, "Verify password" %>
+  <%= f.password_field :password_confirmation %>
+  <br><br>
+  <%= f.submit "Update", class: "btn btn-large btn-primary" %>
+<% end %>

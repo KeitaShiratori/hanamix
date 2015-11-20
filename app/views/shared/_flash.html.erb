@@ -1,0 +1,8 @@
+<% flash.each do |message_type, message| %>
+  <!--メッセージをふわっと表示して自然に消すjsメソッド-->
+  <!--http://alfredobarron.github.io/smoke/#/-->
+  <script>
+    $.smkAlert({text:'<%= message %>', type:'<%= message_type %>'});
+  </script>
+<% end %>
+

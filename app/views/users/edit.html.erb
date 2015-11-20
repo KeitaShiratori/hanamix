@@ -1,0 +1,12 @@
+<div class="col-lg-offset-3 col-lg-6">
+  <h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </h1>
+
+  <%= render 'form' %>
+</div>
+<script>
+  $(".nav_menu").removeClass("active");
+  $("#settings").removeClass("hidden").addClass("active"); 
+</script>
