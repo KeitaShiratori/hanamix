@@ -1,6 +1,4 @@
 $ ->
-
-  
   # コントローラーとアクションに対応する処理だけを実行する
   $body = $("body")
   controller = $body.data("controller")

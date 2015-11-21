@@ -111,9 +111,12 @@
   top: 35vh;
   font-size: 2.2em;
   
-  color: #eee;
   z-index: 2;
   background-color: rgba(0,0,0,.3);
+  
+  h1 {
+    color: #eee;
+  }
 }
 
 /* signup ------------------------- */

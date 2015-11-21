@@ -4,10 +4,11 @@
     <%= render 'shared/filter_card' %>
   </div>
   <div class="col-md-8">
-    <%= image_tag('sample_event_01.jpg', :class => "round-list-item thumbnail") %>
-    <%= image_tag('sample_event_02.jpg', :class => "round-list-item thumbnail") %>
-    <%= image_tag('sample_event_03.jpg', :class => "round-list-item thumbnail") %>
-    <%= image_tag('sample_event_04.jpg', :class => "round-list-item thumbnail") %>
-    <%= image_tag('sample_event_05.jpg', :class => "round-list-item thumbnail") %>
+    <% cnt = 0 %>
+    <% @rounds.each do |r| %>
+      <% cnt %= 5 %>
+      <% cnt += 1 %>
+      <%= render 'shared/round_list', round:r, cnt:cnt %>
+    <% end %>
   </div>
 </div>
