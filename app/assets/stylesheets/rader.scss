@@ -1,16 +1,110 @@
+$rader-width: 800px;
+$rader-height: $rader-width;
+
 #rader{
-  width: 800px; 
-  height: 800px;
+  width: $rader-width; 
+  height: $rader-height;
 }
 
-#rader-frame{
+#rader-grid {
+  z-index: 1;
+  position: absolute;
+  left: 16px;
+  top: 1px;
+
+  width: $rader-width;
+  height: $rader-height;
+
+  background-image:
+  linear-gradient(
+    transparent 98%,
+    rgba(50, 205, 50, 0.1) 5%
+  ),
+  linear-gradient(
+    90deg,
+    transparent 98%,
+    rgba(50, 205, 50, 0.1) 5%
+  );
+  background-size: $rader-width/10 $rader-height/10;
+  background-repeat: repeat;
+}
+
+#rader-frame, #square-frame{
   position: absolute;
   left: 14px;
   top: 0px;
-  width: 802px;
-  height: 802px;
-  z-index: 1;
+  width: $rader-width + 2px;
+  height: $rader-height + 2px;
+  z-index: 2;
   pointer-events: none;
-  
+}
+
+#rader-frame {
   background-image: url("rader-frame.png");
+}
+
+#square-frame {
+  background-image: none;
+  border: 28px solid #bbb;
+  
+  .outer-shadow{
+    height: inherit;
+    width: inherit;
+    position: absolute;
+    top: -28px;
+    left: -28px;
+    box-shadow: rgba(56, 56, 56, 0.15) 3px 3px 5px 5px inset;
+  }
+  
+  .inner-shadow {
+    top: 28px;
+    left: 28px;
+    width: $rader-width - 56px;
+    height: $rader-height - 56px;
+    box-shadow: rgba(56, 56, 56, 0.35) 0px 0px 8px 8px;
+  }
+}
+
+/* レーダー中心の十字 */
+#center-cross{
+  width: 8px; /*その要素自身の幅を、高さの1/4に指定。*/
+  height: 32px;
+  z-index: 3;
+
+  position: absolute;
+  top: $rader-height / 2 - 16px;
+  left: $rader-width / 2 + 12px;
+
+  background:rgb(200, 80, 80);
+  
+  animation-name: flashing;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+#center-cross::before {
+  content:"";	/*before疑似要素のcontent*/
+  display:block;	/*ブロック化*/
+  width:100%;	/*幅と高さを100%に*/
+  height:100%;
+  /*90度回転。回転の基準点はデフォルトで中心なので指定しない*/
+  -moz-transform:rotate(90deg);
+  -webkit-transform:rotate(90deg);
+  background: rgb(200,80,80);
+}
+
+@keyframes flashing {
+  0% {
+		-webkit-transform: scale(1.0);
+		opacity: 0.9;
+  }
+  80% {
+		-webkit-transform: scale(1.0);
+		opacity: 0.9;
+  }
+  100% {
+		-webkit-transform: scale(0.8);
+		opacity: 0.2;
+  }
 }

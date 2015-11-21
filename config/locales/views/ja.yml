@@ -69,3 +69,18 @@ ja:
       microposts:
         tab_name: つぶやき
         no_item: 条件に一致する つぶやきが見つかりませんでした
+  rounds:
+    join: このラウンドに参加する
+    unjoin: このラウンドに参加予定
+    end_logo: このラウンドは終了しました
+    tool:
+      zoom_up:  拡大
+      zoom_out: 縮小
+      score: ゲット
+      battle: バトル
+      reposition: 現在地を更新
+      rader_size: サイズ変更
+    show:
+      date: 開催日
+      time: 時刻
+      

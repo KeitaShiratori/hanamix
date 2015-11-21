@@ -52,7 +52,8 @@ class RoundsController < ApplicationController
       if @round.save
         # roundが登録成功した場合の処理
         create_balls
-        format.html { redirect_to @round, notice: 'Round was successfully created.' }
+        flash[:info] = I18n.t('rounds_create.pre') + @round.title + I18n.t('rounds_create.suf')
+        format.html { redirect_to @round}
         format.json { render :show, status: :created, location: @round }
       else
         format.html { render :new }
@@ -80,7 +81,7 @@ class RoundsController < ApplicationController
   def destroy
     @round.destroy
     respond_to do |format|
-      format.html { redirect_to rounds_url, notice: 'Round was successfully destroyed.' }
+      format.html { redirect_to rounds_url}
       format.json { head :no_content }
     end
   end
@@ -93,7 +94,8 @@ class RoundsController < ApplicationController
     lat = req[:lat].to_f
     lng = req[:lng].to_f
     user_id = req[:user_id].to_i
-    ret = User.find(user_id).balls.where(round_id: @round.id).pluck(:title)
+    ret = {balls: [], has_new_ball: false, has_all_ball: false}
+    ret[:balls] = User.find(user_id).balls.where(round_id: @round.id).pluck(:title) # すでに自分が所有しているボールをretにセット
 
     @balls = @round.balls
     
@@ -105,9 +107,12 @@ class RoundsController < ApplicationController
       if distance < 1.0e-08
         puts "#{b.title} get!!"
         b.owner user_id
-        ret.push b.title
+        ret[:balls].push b.title
+        ret[:has_new_ball] = true
       end
     end
+
+    has_all_ball = ret.length >= 7 ? true : false
 
     respond_to do |format|
       # フォーマットがjsの時の処理。

@@ -1,19 +1,13 @@
-<p>
-  <strong>Title:</strong>
-  <%= round.title %>
-</p>
+<div class="round-card">
+  <h2 class="caption"><%= I18n.t('activerecord.attributes.round.title') %></h2>
+  <p class="content"><%= round.title %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= round.description %>
-</p>
+  <h2 class="caption"><%= I18n.t('activerecord.attributes.round.description') %></h2>
+  <p class="content"><%= round.description %></p>
 
-<p>
-  <strong>Start at:</strong>
-  <%= round.start_at %>
-</p>
+  <h2 class="caption"><%= I18n.t('rounds.show.date') %></h2>
+  <p class="content"><%= round.start_at.to_date %></p>
 
-<p>
-  <strong>End at:</strong>
-  <%= round.end_at %>
-</p>
+  <h2 class="caption"><%= I18n.t('rounds.show.time') %></h2>
+  <p class="content"><%= round.start_at.strftime("%R") + " - " + round.end_at.strftime("%R") %></p>
+</div>

@@ -1,21 +1,30 @@
 <div class="row">
   <div class="col-md-4">
     <%= render 'shared/round_card', round: @round %>
-    <button class="default-button zoom-up">zoom up</button>
-    <button class="default-button zoom-out">zoom out</button>
-    <button class="default-button get-ball">get ball</button>
-    <button class="default-button currentpos">currentpos</button>
-    <p id="zoomlevel">zoomlevel</p>
-    <p id="ball1" class="hidden">イーシンチュウ</p>
-    <p id="ball2" class="hidden">アルシンチュウ</p>
-    <p id="ball3" class="hidden">サンシンチュウ</p>
-    <p id="ball4" class="hidden">スーシンチュウ</p>
-    <p id="ball5" class="hidden">ウーシンチュウ</p>
-    <p id="ball6" class="hidden">リュウシンチュウ</p>
-    <p id="ball7" class="hidden">チーシンチュウ</p>
+    
+    <!-- TODO DemoDay用に、いったん決め打ちの条件分岐を設定。あとでちゃんと実装する。 -->
+    <% if @round.id % 4 == 1 || @round.id % 4 == 2 %>
+      <!-- ラウンド開催前の場合表示 -->
+      <%= render 'shared/round_join_form', round: @round %>
+    <% elsif @round.id % 4 == 3 %>
+      <!-- ラウンド開催中に表示 -->
+      <%= render 'shared/round_tool', round: @round %>
+    <% else %>
+      <!-- ラウンド終了後に表示 -->
+      <%= render 'shared/round_end_logo', round: @round %>
+    <% end %>
   </div>
   <div class="col-md-8">
     <%= render 'shared/rader' %>
+  </div>
+</div>
+
+<!-- ボールゲット時のアニメーション用 -->
+<div id="score-animation" class="hidden">
+  <div class="dark-screen btn-clear"></div>
+  <div class="score-message">
+    <h1>GET!!</h1>
+    <button class="btn btn-warning btn-clear">OK</button>
   </div>
 </div>
 

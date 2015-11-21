@@ -145,24 +145,35 @@ class @rounds
       markers = handler.addMarkers(window.hash)
       handler.bounds.extendWith markers
       handler.fitMapToBounds()
-      dispLevel map.getServiceObject().getZoom()
     )
     #現在位置を取得する
     navigator.geolocation.watchPosition successFunc, errorFunc, optionObj
 
-    dispLevel = (level) ->
-      document.getElementById('zoomlevel').innerHTML = 'LEVEL:' + level
-      return
-    
+
     $(".zoom-up").click ()->
       map.getServiceObject().setZoom(map.getServiceObject().getZoom()+1)
-      dispLevel map.getServiceObject().getZoom()
-      
+
     $(".zoom-out").click ()->
       map.getServiceObject().setZoom(map.getServiceObject().getZoom()-1)
-      dispLevel map.getServiceObject().getZoom()
 
-    $(".get-ball").click ()->
+    $(".reposition").click ()->
+      navigator.geolocation.getCurrentPosition successFunc , errorFunc , optionObj
+      
+    $(".rader-size").click ()->
+      if $("#square-frame").hasClass("hidden")
+        $("#square-frame").removeClass("hidden")
+        $("#rader-frame").addClass("hidden")
+      else
+        $("#square-frame").addClass("hidden")
+        $("#rader-frame").removeClass("hidden")
+
+    $(".btn-clear").click ()->
+      $("#score-animation").addClass("hidden")
+      $(".dark-screen").removeClass('animated fadeIn')
+      $(".score-message").removeClass('animated bounceIn delay1s')
+      $(".btn-clear").removeClass('animated fadeIn delay2s')
+
+    $(".score").click ()->
       round_id = window.round_id
       user_id = window.user_id
       
@@ -176,6 +187,17 @@ class @rounds
           user_id: user_id
       return
 
-    $(".currentpos").click ()->
-      navigator.geolocation.getCurrentPosition successFunc , errorFunc , optionObj
+    $(".battle").click ()->
+      round_id = window.round_id
+      user_id = window.user_id
       
+      # ajaxリクエストを送信
+      $.ajax
+        url: "#{round_id}/battle"      # 送信先
+        type: 'GET'         # 送信するリクエスト
+        data:               # 送信するデータ（パラメータ)。今回の場合は、params[:word] = “入力されている文字列” となる。
+          lat: currentpos.lat()
+          lng: currentpos.lng()
+          user_id: user_id
+      return
+

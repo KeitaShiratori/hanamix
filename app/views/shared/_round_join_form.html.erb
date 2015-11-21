@@ -1,0 +1,6 @@
+<!-- TODO DemoDay用に、いったん決め打ちの条件分岐を設定。あとでちゃんと実装する。 -->
+<% if round.id % 2 == 0 %>
+  <%= render 'shared/round_unjoin', round: round %>
+<% else %>
+  <%= render 'shared/round_join', round: round %>
+<% end %>

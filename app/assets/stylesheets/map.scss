@@ -1,6 +1,9 @@
+$map-width: 750px;
+$map-height: $map-width;
+
 #map{
-  width: 750px; 
-  height: 750px;
+  width: $map-width; 
+  height: $map-height;
 }
 
 .map-frame{

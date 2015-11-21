@@ -3,9 +3,8 @@ ja:
   activerecord:
     models:
       user: ユーザ
-      micropost: つぶやき
-      relationship: フォロー管理
-      retweet: リツイート
+      ball: ボール
+      round: ラウンド
     attributes:
       user:
         name: ユーザ名
@@ -13,11 +12,18 @@ ja:
         password_digest: パスワード
         description: 紹介文
         location: 場所
-      micropost:
-        user_id: ユーザ
-        content : つぶやき
-      relationship:
-        follower_id: フォローしているユーザ
-        followed_id: フォローされているユーザ
-        
+      ball:
+        title: タイトル
+        description: 詳細
+        address: アドレス
+        latitude: 緯度
+        longitude: 経度
+        height: 標高
+      round:
+        title: タイトル
+        description: 詳細
+        start_at: 開始日時
+        end_at: 終了日時
+
+
       

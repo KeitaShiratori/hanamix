@@ -1,10 +1,12 @@
 <div class="round-list-item">
-  <% image_path = "sample_event_0" + cnt.to_s + ".jpg" %>
-  <%= image_tag(image_path, :class => "round-image") %>
-  <div class="round-title">
-    <%= round.title %>
-  </div>
-  <div class="round-start-at">
-    日時：<%= round.start_at %>
-  </div>
+  <%= link_to round do %>
+    <% image_path = "sample_event_0" + cnt.to_s + ".jpg" %>
+    <%= image_tag(image_path, :class => "round-image") %>
+    <div class="round-title">
+      <%= round.title %>
+    </div>
+    <div class="round-start-at">
+      開催日：<%= round.start_at.to_date %>
+    </div>
+  <% end %>
 </div>
