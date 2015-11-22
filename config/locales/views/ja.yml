@@ -38,6 +38,10 @@ ja:
       settings: 設定
       whats_happening: 地球のみんな、オラに元気を分けてくれ！！
       submit: つぶやく
+    join_list:
+      tab_name: 参加予定のラウンド
+    history_list:
+      tab_name: ラウンド履歴
     micropost_list:
       posted: ""
       ago: 前

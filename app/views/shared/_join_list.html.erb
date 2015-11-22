@@ -1,0 +1,5 @@
+<% cnt = 2 %>
+<% rounds.each do |r| %>
+  <%= render 'shared/round_list', round: r, cnt: cnt %>
+  <% cnt += 4 %>
+<% end %>

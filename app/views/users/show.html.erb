@@ -3,8 +3,20 @@
     <%= render 'shared/user_card' %>
   </div>
   <div class="col-md-8">
-    <%= render 'shared/join_list', user: @user %>
-    <%= render 'shared/history_list', user: @user %>
+    <div id="now_on_round">
+      <%= render 'shared/now_on_round', round: @now_on_round %>
+    </div>
+    <ul class="nav nav-tabs nav-justified">
+    	<li role="presentation" class="tabmenu active" id="join_list">
+    	  <%= link_to I18n.t('users.join_list.tab_name'), join_list_user_path(:id=>@user.id), remote: true %>
+    	</li>
+    	<li role="presentation" class="tabmenu" id="history_list">
+    	  <%= link_to I18n.t('users.history_list.tab_name'), history_list_user_path(:id=>@user.id), remote: true %>
+    	</li>
+    </ul>
+    <div id="round_list">
+      <%= render 'shared/join_list', rounds: @join_list %>
+    </div>
   </div>
 </div>
 

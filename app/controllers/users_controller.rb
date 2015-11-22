@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   def show
     if logged_in?
       set_user
+      @join_list = Round.find([26,30])
+      @history_list = Round.find([28,32])
+      @now_on_round = Round.find(35)
     else
       redirect_to root_url
     end
@@ -50,6 +53,14 @@ class UsersController < ApplicationController
       flash.now[:danger] = 'この内容は登録できません'
       render 'edit'
     end
+  end
+
+  def join_list
+    show
+  end
+  
+  def history_list
+    show
   end
 
 private
