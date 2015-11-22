@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   def show
     if logged_in?
       set_user
-      @join_list = Round.find([26,30])
-      @history_list = Round.find([28,32])
-      @now_on_round = Round.find(35)
+      @join_list = Round.find([2,6])
+      @history_list = Round.find([4])
+      @now_on_round = Round.find(3)
     else
       redirect_to root_url
     end
