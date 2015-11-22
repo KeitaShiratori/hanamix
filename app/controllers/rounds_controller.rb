@@ -1,5 +1,5 @@
 class RoundsController < ApplicationController
-  before_action :set_round, only: [:show, :edit, :update, :destroy, :score]
+  before_action :set_round, only: [:show, :edit, :update, :destroy, :score, :battle]
 
   # GET /rounds
   # GET /rounds.json
@@ -127,6 +127,14 @@ class RoundsController < ApplicationController
     # OKなら、攻撃側の攻撃力と防御側の防御力を計算
     # 攻撃成功なら、ボールの所有者を攻撃者に変更する。
     # 
+    
+    # TODO DemoDay用に、ボールゲットのアニメーションを必ず実行できるようにした。あとで削除
+    ret = {balls: [], has_new_ball: false, has_all_ball: false}
+    ret[:balls] = @round.balls.pluck(:title)
+    ret[:has_new_ball] = true
+    respond_to do |format|
+      format.js { @status = "success", @ret = ret }
+    end
   end
   
 private

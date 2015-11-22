@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :rounds do
     member do
       get 'score'
-      post 'battle'
+      get 'battle'
     end
   end
   
