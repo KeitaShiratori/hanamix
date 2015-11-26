@@ -4,9 +4,8 @@ class UsersController < ApplicationController
   def show
     if logged_in?
       set_user
-      @join_list = Round.find([2,6])
-      @history_list = Round.find([4])
-      @now_on_round = Round.find(3)
+      join_list
+      now_on_round
     else
       redirect_to root_url
     end
@@ -56,7 +55,7 @@ class UsersController < ApplicationController
   end
 
   def join_list
-    show
+    @join_list = Round.find([28,32])
   end
   
   def history_list
@@ -91,4 +90,9 @@ private
   def set_user
     @user=User.find(params[:id])
   end
+  
+  def now_on_round
+    @now_on_round = Round.find(35)
+  end
+
 end

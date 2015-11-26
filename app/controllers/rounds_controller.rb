@@ -144,7 +144,7 @@ private
   end
 
   def create_req
-    params.require(:round).permit(:title, :description, :start_at, :end_at, :balls)
+    params.require(:round).permit(:title, :description, :start_at, :end_at, :picture, :balls)
   end
   
   def score_req

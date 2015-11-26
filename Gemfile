@@ -44,6 +44,10 @@ gem "geocoder"
 gem 'underscore-rails'
 gem 'jquery-turbolinks'
 
+# 画像アップロード
+gem 'carrierwave'
+gem 'cloudinary'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

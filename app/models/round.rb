@@ -5,5 +5,7 @@ class Round < ActiveRecord::Base
 
   # リレーション定義
   has_many :balls, dependent: :destroy
-    
+  
+  # 画像アップローダー
+  mount_uploader :picture, PictureUploader
 end
