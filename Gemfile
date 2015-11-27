@@ -46,6 +46,7 @@ gem 'jquery-turbolinks'
 
 # 画像アップロード
 gem 'carrierwave'
+gem 'rmagick'
 gem 'cloudinary'
 
 # Use Unicorn as the app server
