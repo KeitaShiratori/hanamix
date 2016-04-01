@@ -1,0 +1,5 @@
+<%= link_to approve_paticipation_path(round_id: round.id, user_id: wish_user.id, type: "Approval"), method: "post", remote: true do %>
+  <button class="btn btn-signup glyphicon glyphicon-heart">
+    <%= I18n.t('rounds.show.wish_user.approval') %>
+  </button>
+<% end %>

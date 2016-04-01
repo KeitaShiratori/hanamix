@@ -1,0 +1,11 @@
+<%= link_to paticipation_path(id: round.id), method: "delete", remote: true do %>
+  <button class="btn btn-success btn-unpaticipate glyphicon glyphicon-empty-heart" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-container="body" title="<%= I18n.t('rounds.unpaticipate.delete') %>">
+    <%= I18n.t('rounds.unpaticipate.display') %>
+  </button>
+<% end %>
+
+<script type="text/javascript">
+  $(function(){
+      $("[rel=tooltip]").tooltip();
+  });
+</script>

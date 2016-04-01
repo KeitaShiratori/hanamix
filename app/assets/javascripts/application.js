@@ -15,4 +15,5 @@
 //= require jquery_ujs
 //= require underscore
 //= require gmaps/google
+//= require map_helper/map_helper
 //= require_tree .

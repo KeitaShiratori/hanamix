@@ -13,7 +13,58 @@ class User < ActiveRecord::Base
   
   # リレーションシップ定義
   has_many :balls
+  has_many :talks
+  has_many :paticipations, dependent: :destroy
+  has_many :paticipate_rounds, through: :paticipations, source: :round
+  has_many :wishes, dependent: :destroy
+  has_many :wish_rounds, through: :wishes, source: :round
+  has_many :approvals, dependent: :destroy
+  has_many :approvals_rounds, through: :approvals, source: :round
 
   # モデルメソッド定義
+  # ラウンドに参加する
+  def paticipate round
+    paticipations.create(round_id: round.id)
+  end
+
+  # ラウンドの参加を取り消す
+  def unpaticipate round
+    paticipations.find_by(round_id: round.id).destroy
+  end
+
+  # あるラウンドに参加しているかどうか？
+  def paticipate? round
+    paticipate_rounds.include?(round)
+  end
+
+  # 0次会に参加希望する
+  def wish round
+    wishes.create(round_id: round.id)
+  end
+
+  # 0次会に参加希望を取り消す
+  def unwish round
+    wishes.find_by(round_id: round.id).destroy
+  end
+
+  # 0次会に参加希望しているかどうか？
+  def wish? round
+    wishes_rounds.include?(round)
+  end
+
+  # 0次会に参加承認する
+  def approve round
+    wishes.find_by(round_id: round.id).update_attribute(:type, "Approval")
+  end
+
+  # 0次会に参加希望を取り消す
+  def unapprove round
+    approvals.find_by(round_id: round.id).destroy
+  end
+
+  # 0次会に参加希望しているかどうか？
+  def approve? round
+    approvals_rounds.include?(round)
+  end
 
 end

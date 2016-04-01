@@ -1,13 +1,9 @@
-<h1 class="now-on-round-message">現在開催中のラウンド</h1>
-<div class="round-list-item">
-  <%= link_to round do %>
-    <% image_path = "sample_event_03.jpg" %>
-    <%= image_tag(image_path, :class => "round-image") %>
-    <div class="round-title">
-      <%= round.title %>
-    </div>
-    <div class="round-start-at">
-      開催日：<%= round.start_at.to_date %>
-    </div>
-  <% end %>
-</div>
+<h1 class="now-on-round-message"><%= I18n.t('users.now_on_round.header_name') %></h1>
+
+<% if round.present? %>
+  <%= render 'shared/round_list', round: round %>
+<% else %>
+  <div>
+    <h2><%= I18n.t('users.now_on_round.empty') %></h2>
+  </div>
+<% end %>

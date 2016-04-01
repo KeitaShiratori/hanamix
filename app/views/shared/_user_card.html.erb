@@ -17,7 +17,7 @@
         <% if current_user == disp_user %>
           <h4 class="media-heading">
             <%= link_to "/users/#{current_user.id}/edit" do %>
-              <span class="label label-warning glyphicon glyphicon-pencil"> <%= I18n.t("users.side_bar.settings") %></span>
+              <span class="btn btn-setting glyphicon glyphicon-pencil"> <%= I18n.t("users.side_bar.settings") %></span>
             <% end %>
           </h4>
         <% end %>

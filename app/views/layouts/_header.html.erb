@@ -9,13 +9,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
       <ul class="nav navbar-nav">
-        <li id="home" class="nav_menu"><%= link_to I18n.t('layouts.home'), root_path %></li>
+        <li class="home nav_menu hidden-sm hidden-xs"><%= link_to I18n.t('layouts.home'), root_path %></li>
+        <li class="home nav_menu hidden-lg hidden-md"><%= link_to root_path do %><i class="glyphicon glyphicon-home"></i><% end %></li>
         <% if logged_in? %>
-          <li id="my_page" class="nav_menu"><%= link_to I18n.t('layouts.my_page'), current_user %></li>
-          <li id="rounds" class="nav_menu"><%= link_to I18n.t('layouts.rounds'), rounds_path %></li>
-          <li class="dropdown nav_menu">
+          <li class="my_page nav_menu hidden-sm hidden-xs"><%= link_to I18n.t('layouts.my_page'), current_user %></li>
+          <li class="my_page nav_menu hidden-lg hidden-md"><%= link_to current_user do %><i class="glyphicon glyphicon-user"></i><% end %></li>
+          <li class="new_round nav_menu hidden-sm hidden-xs"><%= link_to I18n.t('layouts.new_round'), new_round_path %></li>
+          <li class="new_round nav_menu hidden-lg hidden-md"><%= link_to new_round_path do %><i class="glyphicon glyphicon-pencil"></i><% end %></li>
+          <li class="dropdown nav_menu hidden-sm hidden-xs">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= I18n.t('layouts.account') %> <b class="caret"></b>
+              <i class="glyphicon glyphicon-cog"></i> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to I18n.t('layouts.settings'), edit_user_path(current_user) if logged_in?%></li>
@@ -25,40 +28,27 @@
               </li>
             </ul>
           </li>
-          <li id="settings" class="nav_menu hidden"><%= link_to I18n.t('layouts.settings'), '#' %></li>
+          <li class="settings nav_menu hidden-lg hidden-md"><%= link_to edit_user_path(current_user) do %><i class="glyphicon glyphicon-cog"></i><% end %></li>
+          <!-- スマホ用にはログアウトはいらないかなー -->
+          <!--<li class="nav_menu hidden-lg hidden-md"><%#= link_to logout_path, method: "delete" do %><i class="glyphicon glyphicon-log-out"></i><%# end %></li>-->
+
+          <!-- 以下、ページ遷移時のみ表示のナビ -->
+          <li class="settings nav_menu hidden hidden-sm hidden-xs"><%= link_to I18n.t('layouts.settings'), '#' %></li>
           <li id="search" class="nav_menu hidden"><%= link_to I18n.t('layouts.search'), '#' %></li>
           <% @user.present? ? user_name = @user.name : user_name = "" %>
           <li id="other_page" class="nav_menu hidden"><a href="#"><%= user_name + I18n.t('layouts.other_page') %></a></li>
-          <li id="new_round" class="nav_menu hidden"><%= link_to I18n.t('layouts.new_round'), '#' %></li>
           <li id="edit_round" class="nav_menu hidden"><%= link_to I18n.t('layouts.edit_round'), '#' %></li>
           <li id="round" class="nav_menu hidden"><%= link_to I18n.t('layouts.round'), '#' %></li>
         <% else %>
           <li id="log_in" class="nav_menu"><%= link_to I18n.t('layouts.log_in'), login_path %></li>
           <li id="sign_up" class="nav_menu hidden"><%= link_to I18n.t('layouts.sign_up'), '#' %></li>
         <% end %>
-        <!--<li class="dropdown">-->
-        <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>-->
-        <!--  <ul class="dropdown-menu">-->
-        <!--    <li><a href="#">Example menu</a></li>-->
-        <!--    <li><a href="#">Example menu</a></li>-->
-        <!--    <li><a href="#">Example menu</a></li>-->
-        <!--  </ul>-->
-        <!--</li>-->
       </ul>
     </div>
     <!-- /.navbar-collapse -->
 
     <% if logged_in? %>
-      <nav>
-        <ul class="nav navbar-nav navbar-right">
-          <form class="navbar-form navbar-left" role="search" action="/users/">
-    				<div class="form-group">
-    					<input type="text" class="form-control" name="q" placeholder=<%= I18n.t('search.user_or_microposts') %>>
-    				</div>
-    				<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-    			</form>
-    		</ul>
-      </nav>
+      <%#= render 'search_bar' %>
     <% end %>
   </div>
   <!-- /.container -->

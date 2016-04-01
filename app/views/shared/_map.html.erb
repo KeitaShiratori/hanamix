@@ -1,6 +1,11 @@
+<%= form_for(@round) do |f| %>
+  <div class="field map-search-form">
+    <%= f.text_field :address, class: "address", placeholder: "住所で検索" %>
+    <%= link_to "検索", "#", class: "map-search-button btn btn-sm" %>
+  </div>
+<% end %>
 <div>
-  <!--<div class="map-frame map-frame-animation1"></div>-->
-  <!--<div class="map-frame map-frame-animation2"></div>-->
-  <!--<div class="map-frame map-frame-animation3"></div>-->
-  <div id="map"></div>
+  <div class="map-wrapper">
+    <div id="map"></div>
+  </div>
 </div>

@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :microposts, :feed, :update, :destroy]
+  before_action :set_user, only: [:edit, :update, :destroy, :join_list, :history_list]
   
   def show
     if logged_in?
       set_user
-      join_list
+      history_list
       now_on_round
     else
       redirect_to root_url
@@ -55,11 +55,13 @@ class UsersController < ApplicationController
   end
 
   def join_list
-    @join_list = Round.find([28,32])
+    now = Time.current
+    @join_list = @user.paticipate_rounds.where("rounds.start_at >= ?", now)
   end
   
   def history_list
-    show
+    now = Time.current
+    @history_list = @user.paticipate_rounds.where("rounds.end_at <= ?", now)
   end
 
 private
@@ -92,7 +94,8 @@ private
   end
   
   def now_on_round
-    @now_on_round = Round.find(35)
+    now = Time.current
+    @now_on_round = @user.paticipate_rounds.where("rounds.start_at <= ?", now).where("rounds.end_at >= ?", now).first
   end
 
 end

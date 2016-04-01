@@ -14,32 +14,77 @@
   -webkit-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.2);
   -moz-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.2);
   
-  .round-image {
-    width: 100%;
-    padding: 1px;
-    
-    border: solid 0px #000;
-    /* 上のみ角丸 */
-    border-top-left-radius: 6px; 
-    border-top-right-radius: 6px;
-    -webkit-border-top-left-radius: 6px;
-    -webkit-border-top-right-radius: 6px;
-    -moz-border-radius-topleft: 6px;
-    -moz-border-radius-topright: 6px;
-  }
-
   .round-title {
     font-size: 1.4em;
     padding: 0px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
   }
     
   .round-start-at {
     font-size: 1.2em;
     padding: 0px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
   }
 }
 
-.btn-join, .btn-unjoin, .end-logo{
+.round-list-label {
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  display: block;
+  .btn{
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  }
+  .btn-sm{
+    margin: 0 5px 0 0;
+  }
+  .open {
+    background-color: $orange;
+    color: darken($orange, 50%);
+    border-color: darken($orange, 5%);
+    &:before {
+      content: "開催中";
+    }
+  }
+  .opened {
+    background-color: #eeeeee;
+    color: darken(#eeeeee, 80%);
+    border-color: darken(#eeeeee, 5%);
+    &:before {
+      content: "終了";
+    }
+  }
+}
+
+.round-image {
+  width: 100%;
+  padding: 1px;
+  
+  border: solid 0px #000;
+  /* 上のみ角丸 */
+  border-top-left-radius: 6px; 
+  border-top-right-radius: 6px;
+  -webkit-border-top-left-radius: 6px;
+  -webkit-border-top-right-radius: 6px;
+  -moz-border-radius-topleft: 6px;
+  -moz-border-radius-topright: 6px;
+}
+
+#now_on_round .round-image{
+  min-height: 400px;
+}
+
+#now_on_round .round-list-label{
+  top: 75px;
+}
+
+.btn-paticipate, .btn-unpaticipate, .end-logo{
   width: 100%;
   margin-bottom: 20px;
 
@@ -79,23 +124,18 @@
 
 .tool{
   padding: .6em;
-  
   .caption {
     color: $maroon;
     font-size: 1.4em;
     font-weight: bold;
     text-align: left;
-    
     margin: .8em 0 .2em;
   }
-  
   .btn {
     width: 49%;
     font-size: 1.2em;
   }
-  
 }
-
 
 #score-animation {
   .dark-screen {
@@ -126,4 +166,33 @@
       font-size: 12em;
     }
   }
+}
+
+
+
+@media (max-width: 992px) {
+  // スマホ・タブレット共通スタイル
+}
+
+@media (max-width: 768px){
+  // スマホ用スタイル
+  .round-list-item{
+    margin-bottom: 15px;
+  }
+  .round-list-item>a>.round-image{
+    max-height: 120px;
+  }
+  .round-list-label {
+    left:5px;
+  }
+  #now_on_round .round-image{
+    min-height: 200px;
+  }
+  #now_on_round .round-list-label{
+    top: 50px;
+  }
+}
+
+@media (min-width: 768px){
+  // タブレット用スタイル
 }

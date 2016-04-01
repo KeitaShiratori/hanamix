@@ -1,0 +1,11 @@
+<% if wish_users.present? %>
+  <ol class="wish-users">
+    <% wish_users.each do |w| %>
+      <%= render partial: 'shared/wish_user', locals: {wish_user: w } %>
+    <% end %>
+  </ol>
+<% else %>
+  <div>
+    <h2><%= I18n.t('rounds.show.wish_user.empty') %></h2>
+  </div>
+<% end %>

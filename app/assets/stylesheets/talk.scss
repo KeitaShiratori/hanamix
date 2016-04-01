@@ -1,0 +1,82 @@
+// Place all the styles related to the talk controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.talks{
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    word-break: break-all;
+    white-space: pre-line;  
+    margin-left: 60px;
+    display: block;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+}
+
+.btn-talk {
+  background-color: #ffa5a5;
+  border-color: #ff8c8c;
+  color: #fff;
+  font-weight: 900;
+  &:hover{
+    background-color: #ff8c8c; //orange
+    border-color: #d26969; //chocolate
+    color: #fff;
+    font-weight: 900;
+  }
+}
+
+.arrow_box {
+  margin: 10px 0px 20px 70px;
+  padding: 10px 15px 15px 15px;
+  border-radius: 6px;
+  position: relative;
+  background: #fef4f4;
+  border: 1px solid #333333;
+  &:after, &:before {
+  	right: 100%;
+  	top: 30%;
+  	border: solid transparent;
+  	content: " ";
+  	height: 0;
+  	width: 0;
+  	position: absolute;
+  	pointer-events: none;
+  }
+  &:before {
+  	border-color: rgba(51, 51, 51, 0);
+  	border-right-color: #333333;
+  	border-top-width: 0px;
+  	border-right-width: 22px;
+  	border-bottom-width: 23px;
+  	border-left-width: 0px;
+  	margin-top: -7px;
+  }
+  &:after {
+  	border-color: rgba(254, 246, 246, 0);
+  	border-right-color: #fef4f4;
+  	border-top-width: 0px;
+    border-right-width: 21px;
+    border-bottom-width: 21px;
+    border-left-width: 0px;
+    margin-top: -6px;
+    margin-right: -1px;  }
+
+}
+
+.timestamp, {
+  color: #888888;
+  display: block;
+  margin-left: 60px;
+}

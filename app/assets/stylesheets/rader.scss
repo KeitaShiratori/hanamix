@@ -6,33 +6,10 @@ $rader-height: $rader-width;
   height: $rader-height;
 }
 
-#rader-grid {
-  z-index: 1;
-  position: absolute;
-  left: 16px;
-  top: 1px;
-
-  width: $rader-width;
-  height: $rader-height;
-
-  background-image:
-  linear-gradient(
-    transparent 98%,
-    rgba(50, 205, 50, 0.1) 5%
-  ),
-  linear-gradient(
-    90deg,
-    transparent 98%,
-    rgba(50, 205, 50, 0.1) 5%
-  );
-  background-size: $rader-width/10 $rader-height/10;
-  background-repeat: repeat;
-}
-
 #rader-frame, #square-frame{
   position: absolute;
   left: 14px;
-  top: 0px;
+  top: 42px;
   width: $rader-width + 2px;
   height: $rader-height + 2px;
   z-index: 2;
@@ -72,7 +49,7 @@ $rader-height: $rader-width;
   z-index: 3;
 
   position: absolute;
-  top: $rader-height / 2 - 16px;
+  top: $rader-height / 2 + 26px;
   left: $rader-width / 2 + 12px;
 
   background:rgb(200, 80, 80);
@@ -107,4 +84,17 @@ $rader-height: $rader-width;
 		-webkit-transform: scale(0.8);
 		opacity: 0.2;
   }
+}
+
+@media (max-width: 992px) {
+  // スマホ・タブレット共通スタイル
+  $rader-width: 66.6%;
+}
+
+@media (max-width: 768px){
+  // スマホ用スタイル
+}
+
+@media (min-width: 768px){
+  // タブレット用スタイル
 }

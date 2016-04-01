@@ -1,5 +1,9 @@
-<% cnt = 2 %>
-<% rounds.each do |r| %>
-  <%= render 'shared/round_list', round: r, cnt: cnt %>
-  <% cnt += 4 %>
+<% if rounds.present? %>
+  <% rounds.each do |r| %>
+    <%= render 'shared/round_list', round: r%>
+  <% end %>
+<% else %>
+  <div>
+    <h2><%= I18n.t('users.join_list.empty') %></h2>
+  </div>
 <% end %>

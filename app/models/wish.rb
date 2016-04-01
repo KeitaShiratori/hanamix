@@ -1,0 +1,2 @@
+class Wish < Paticipation
+end

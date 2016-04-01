@@ -1,0 +1,4 @@
+$("#content-area").html("<%= escape_javascript(render('shared/wish_users_list', wish_users: @wish_users)) %>");
+$(".tabmenu").removeClass("active");
+$("#wish-tab").addClass("active");
+$("#talk-form").addClass("hidden");

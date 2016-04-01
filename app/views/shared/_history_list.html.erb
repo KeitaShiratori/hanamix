@@ -1,4 +1,11 @@
-<% cnt = 4 %>
-<% rounds.each do |r| %>
-  <%= render 'shared/round_list', round: r, cnt: cnt %>
+<% if rounds.present? %>
+  <% rounds.each do |r| %>
+    <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6">
+      <%= render 'shared/round_list', round: r%>
+    </div>
+  <% end %>
+<% else %>
+  <div>
+    <h2><%= I18n.t('users.history_list.empty') %></h2>
+  </div>
 <% end %>

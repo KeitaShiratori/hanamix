@@ -1,13 +1,56 @@
-<div class="round-card">
-  <h2 class="caption"><%= I18n.t('activerecord.attributes.round.title') %></h2>
-  <p class="content"><%= round.title %></p>
+<div>
+  <div>
+    <% if round.picture.present? %>
+      <%= image_tag round.picture.url, :class => "round-image" %>
+    <% else %>
+      <%= image_tag "intro.jpg", :class => "round-image" %>
+    <% end %>
+  </div>
+  <div class="round-card">
+    <div>
+      <%= link_to user_path @owner do %>
+        <%= gravatar_for @owner, size: 30 %>
+        <span class="media-heading" style="font-size: 20px; font-weight: bold;">
+          <%= @owner.name %>
+        </span>
+        <% if current_user == @owner %>
+          <%= link_to "/rounds/#{@round.id}/edit" do %>
+            <span class="pull-right btn btn-setting glyphicon glyphicon-pencil" style="font-size: 12px;" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-container="body" title="<%= I18n.t('rounds.edit.tool_tip') %>"></span><script type="text/javascript">$(function(){$("[rel=tooltip]").tooltip();});</script>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
 
-  <h2 class="caption"><%= I18n.t('activerecord.attributes.round.description') %></h2>
-  <p class="content"><%= round.description %></p>
-
-  <h2 class="caption"><%= I18n.t('rounds.show.date') %></h2>
-  <p class="content"><%= round.start_at.to_date %></p>
-
-  <h2 class="caption"><%= I18n.t('rounds.show.time') %></h2>
-  <p class="content"><%= round.start_at.strftime("%R") + " - " + round.end_at.strftime("%R") %></p>
+    <h2 class="caption"><%= I18n.t('activerecord.attributes.round.title') %></h2>
+    <p class="content"><%= round.title %></p>
+  
+    <h2 class="caption"><%= I18n.t('activerecord.attributes.round.description') %></h2>
+    <p class="content"><%= round.description %></p>
+  
+    <h2 class="caption"><%= I18n.t('rounds.show.date') %></h2>
+    <p class="content"><%= round.start_at.to_date %></p>
+  
+    <h2 class="caption"><%= I18n.t('rounds.show.time') %></h2>
+    <p class="content"><%= round.start_at.strftime("%R") + " - " + round.end_at.strftime("%R") %></p>
+    
+    <h2 class="caption"><%= I18n.t('rounds.show.paticipate_users') %></h2>
+    <p class="content">
+      <span><%= @approvals_users.length %> 名</span>
+      <% @approvals_users.each do |user| %>
+        <span rel="tooltip<%= user.id %>" data-toggle="tooltip<%= user.id %>" data-placement="center" data-container="body" title="<%= user.name %>">
+          <%= link_to(gravatar_for(user, size: 30), user, alt: user.name) %>
+        </span>
+        <script type="text/javascript">$(function(){$("[rel=tooltip<%= user.id %>]").tooltip();});</script>
+      <% end %>
+    </p>
+    
+    <h2 class="caption"><%= I18n.t('rounds.show.map_link') %></h2>
+    <% if current_user.approve? round %>
+      <%= link_to "http://maps.google.com/maps?q=#{round.lat},#{round.lng}", target: "_new"  do %>
+        <p>マップを表示</p>
+      <% end %>
+    <% else %>
+      <p>承認されるまでお待ちください</p>
+    <% end %>
+  </div>
 </div>

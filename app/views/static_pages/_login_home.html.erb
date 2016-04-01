@@ -1,14 +1,7 @@
 <div class="row">
-  <div class="col-md-4">
-    <%= render 'shared/user_card' %>
-    <%= render 'shared/filter_card' %>
-  </div>
-  <div class="col-md-8">
-    <% cnt = 0 %>
-    <% @rounds.each do |r| %>
-      <% cnt %= 7 %>
-      <% cnt += 1 %>
-      <%= render 'shared/round_list', round:r, cnt:cnt %>
-    <% end %>
-  </div>
+  <% @rounds.each do |r| %>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+      <%= render 'shared/round_list', round:r %>
+    </div>
+  <% end %>
 </div>

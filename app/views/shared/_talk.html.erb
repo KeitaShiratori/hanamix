@@ -1,0 +1,10 @@
+<li id="talk-<%= talk.id %>">
+  <%= link_to gravatar_for(talk.user, size: 50), talk.user %>
+  <span class="user">
+    <%= link_to talk.user.name, talk.user %><br>
+  </span>
+  <span class="content arrow_box"><%= talk.content %></span>
+  <span class="timestamp">
+    <%= I18n.t('rounds.show.talk.posted') + time_ago_in_words(talk.created_at) + I18n.t('rounds.show.talk.ago') %>
+  </span>
+</li>

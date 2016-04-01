@@ -1,38 +1,37 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <%= render 'shared/round_card', round: @round %>
     
-    <!-- TODO DemoDay用に、いったん決め打ちの条件分岐を設定。あとでちゃんと実装する。 -->
-    <% if @round.id % 4 == 1 || @round.id % 4 == 2 %>
+    <% if @round.start_at.future? %>
       <!-- ラウンド開催前の場合表示 -->
-      <%= render 'shared/round_join_form', round: @round %>
-    <% elsif @round.id % 4 == 3 %>
+      <div id="paticipate-form">
+        <%= render 'shared/round_paticipate_form', round: @round %>
+      </div>
+    <% elsif @round.end_at.future? %>
       <!-- ラウンド開催中に表示 -->
-      <%= render 'shared/round_tool', round: @round %>
+      <%= render 'shared/round_tool_form', round: @round %>
     <% else %>
       <!-- ラウンド終了後に表示 -->
       <%= render 'shared/round_end_logo', round: @round %>
     <% end %>
   </div>
-  <div class="col-md-8">
-    <%= render 'shared/rader' %>
+  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+    <ul class="nav nav-tabs nav-justified">
+    	<li role="presentation" class="tabmenu active" id="talk-tab">
+    	  <%= link_to I18n.t('rounds.show.talk.tab_name'), show_talk_round_path(:id=>@round.id), remote: true %>
+    	</li>
+    	<% if current_user == @round.owner %>
+    	  <!-- 主催者の場合のみ表示 -->
+      	<li role="presentation" class="tabmenu" id="wish-tab">
+      	  <%= link_to I18n.t('rounds.show.wish_user.tab_name'), show_wish_round_path(:id=>@round.id), remote: true %>
+      	</li>
+    	<% end %>
+    </ul>
+    <div id="content-area">
+      <%= render 'shared/talk_list', talks: @talk_list %>
+    </div>
   </div>
 </div>
-
-<!-- ボールゲット時のアニメーション用 -->
-<div id="score-animation" class="hidden">
-  <div class="dark-screen btn-clear"></div>
-  <div class="score-message">
-    <h1>GET!!</h1>
-    <button class="btn btn-warning btn-clear">OK</button>
-  </div>
-</div>
-
-<%= javascript_tag do %>
-  <!--jsのボタンイベントで利用する変数（読み込み順の関係で、初期処理時に使う変数は渡せない）-->
-  window.round_id = <%= @round.id %>;
-  window.user_id = <%= @user.id %>;
-<% end %>
 
 <script>
   $(".nav_menu").removeClass("active");

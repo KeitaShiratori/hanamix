@@ -8,25 +8,36 @@
 <section id="intro" class="intro animated fadeInUp">
   <div class="dark-screen animated delay3s fadeIn"></div>
 	<div class="intro-message animated fadeIn delay4s">
-	  <h1>さぁ 願いをいえ</h1>
-    <h1>どんな願いも１つだけかなえてやろう</h1>
+	  <h1>『場所取り』</h1>
+    <h1>そんな孤独な闘いに終止符を・・・</h1>
 	</div>
 </section>
 <!-- /Section: intro -->
 
 <div id="signup" class="hidden">
-  <div class="metal radial">
-    <div class="rader-bg">
-      <div class="center-cross"></div>
-      <div class="intro-ball ball1"></div>
-      <div class="intro-ball ball2"></div>
-      <div class="intro-ball ball3"></div>
-      <div class="intro-ball ball4"></div>
-      <div class="intro-ball ball5"></div>
-      <div class="intro-ball ball6"></div>
-      <div class="intro-ball ball7"></div>
+  <div class="metal">
+    <div class="intro2">
       <h1 class="signup-message"><%= I18n.t('static_pages.welcome_message') %></h1>
-      <%= link_to "#{I18n.t('static_pages.sign_up_now')}", signup_path, class: "btn btn-lg btn-primary btn-signup" %>
+      <%= link_to "#{I18n.t('static_pages.sign_up_now')}", signup_path, class: "btn btn-lg btn-primary btn-signup margin-top-minus20" %>
+      <div class="row">
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class="col-xs-push-2 col-xs-8">
+          <p>
+            お花見は楽しいけれど、場所取りが大変<br>
+            1人で場所取りするのはヒマすぎてツライ。。<br>
+            <br>
+            ここはそんなあなたのためのSNS。<br>
+            場所取りしている間に、0次会を始めちゃおう！<br>
+            <br>
+            カンタン３ステップで0次会が始められます。<br>
+            <ol>
+              <li>あなたの現在地と0次会情報をSNSに登録！</li>
+              <li>誰かから参加申請が来たら、地図を送ろう♪</li>
+              <li>みんな集まったら0次会を始めちゃおう！</li>
+            </ol>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

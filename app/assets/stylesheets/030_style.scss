@@ -3,10 +3,10 @@
 /* navigation_header */
 #navigation_header{
   font-size: 1.4em;
-  background-color: rgba(255,165,0, 0.4);
+  background-color: rgba(255,165, 165, 0.4);
   .active{
     border-bottom: inset;
-    border-color: #ffa500;
+    border-color: #ffa5a5;
   }
 }
 
@@ -45,7 +45,7 @@
     &:hover, &:focus {
       background-color: rgba(0, 0, 0, 0);
       border-bottom: inset;
-      border-color: #ffa500;
+      border-color: #ffa5a5;
     }
   }
 }
@@ -60,7 +60,7 @@
 }
 
 .navbar-custom.top-nav-collapse {
-  background: #ffa500;
+  background: #ffa5a5;
   .nav.navbar-nav {
     background-color: rgba(0, 0, 0, 0);
   }
@@ -197,6 +197,9 @@
   }
 }
 
+.btn-lg{
+  background-color: #ffb6c1;
+}
 .btn-huge {
   padding: 25px;
   font-size: 1.8em;

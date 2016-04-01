@@ -1,0 +1,12 @@
+<%= render 'shared/talk_form' %>
+<% if talks.present? %>
+  <ol class="talks">
+    <% talks.each do |t| %>
+      <%= render partial: 'shared/talk', locals: {talk: t } %>
+    <% end %>
+  </ol>
+<% else %>
+  <div>
+    <h2><%= I18n.t('rounds.show.talk.empty') %></h2>
+  </div>
+<% end %>

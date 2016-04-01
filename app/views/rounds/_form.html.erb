@@ -1,50 +1,51 @@
-<button class="btn btn-warning sample">ボール設置</button>
-
-<%= form_for(@round) do |f| %>
-  <% if @round.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@round.errors.count, "error") %> prohibited this round from being saved:</h2>
-
-      <ul>
-      <% @round.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="row">
+  <%= form_for(@round) do |f| %>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <% if @round.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@round.errors.count, "error") %> prohibited this round from being saved:</h2>
+    
+          <ul>
+          <% @round.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
+    
+      <div class="field">
+        <%= f.label :title %><br>
+        <%= f.text_field :title , placeholder: I18n.t('rounds.form.title.placeholder') %>
+      </div>
+      <div class="field">
+        <%= f.label :description %><br>
+        <%= f.text_area :description, :size=>"60x10", placeholder: I18n.t('rounds.form.description.placeholder') %>
+      </div>
+      <div class="field">
+        <%= f.label I18n.t('rounds.form.term.title') %><br>
+        <%= select :r, :term, [["30分", "0.5"], ["1時間", "1.0"], ["1時間30分", "1.5"], ["2時間", "2.0"], ["2時間30分", "2.5"], ["3時間", "3.0"], ["3時間30分", "3.5"], ["4時間", "4.0"], ["4時間30分", "4.5"], ["5時間", "5.0"], ["5時間30分", "5.5"], ["6時間", "6.0"]] %>
+      </div>
+      <div>
+        <%= image_tag @round.picture.url if @round.picture %>
+        <%= f.label :picture %>
+        <%= f.file_field :picture %>
+      </div>
+      <div class="field">
+        <%= hidden_field :r, :lat %>
+      </div>
+      <div class="field">
+        <%= hidden_field :r, :lng %>
+      </div>
+      <div class="actions hidden-sm hidden-xs">
+        <%= f.submit I18n.t('rounds.form.submit'), class: "btn btn-signup" %>
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+      <%= f.label "マップ" %>
+      <%= render 'shared/map' %>
+      <div class="actions hidden-lg hidden-md">
+        <%= f.submit I18n.t('rounds.form.submit'), class: "btn btn-signup" %>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :start_at %><br>
-    <%= f.datetime_select :start_at %>
-  </div>
-  <div class="field">
-    <%= f.label :end_at %><br>
-    <%= f.datetime_select :end_at %>
-  </div>
-  <div>
-    <%= image_tag @round.picture.url if @round.picture %>
-    <%= f.label :picture %>
-    <%= f.file_field :picture %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :balls, id: 'balls' %>
-    <%= f.password_field :ball1, id: 'ball-1', class: 'hidden' %>
-    <%= f.password_field :ball2, id: 'ball-2', class: 'hidden' %>
-    <%= f.password_field :ball3, id: 'ball-3', class: 'hidden' %>
-    <%= f.password_field :ball4, id: 'ball-4', class: 'hidden' %>
-    <%= f.password_field :ball5, id: 'ball-5', class: 'hidden' %>
-    <%= f.password_field :ball6, id: 'ball-6', class: 'hidden' %>
-    <%= f.password_field :ball7, id: 'ball-7', class: 'hidden' %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

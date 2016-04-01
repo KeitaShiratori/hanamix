@@ -1,0 +1,10 @@
+<li id="wish-user-<%= wish_user.id %>">
+  <%= link_to gravatar_for(wish_user, size: 50), wish_user %>
+  <span class="user">
+    <%= link_to wish_user.name, wish_user %><br>
+  </span>
+  <span class="content arrow_box"><%= wish_user.description %></span>
+  <div id="approve-form-<%= wish_user.id %>">
+    <%= render 'shared/approve', {round: @round, wish_user: wish_user} %>
+  </div>
+</li>

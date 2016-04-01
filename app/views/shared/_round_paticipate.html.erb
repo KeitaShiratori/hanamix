@@ -1,0 +1,5 @@
+<%= link_to paticipations_path(round_id: round.id, type: "Wish"), method: "post", remote: true do %>
+  <button class="btn btn-warning btn-paticipate glyphicon glyphicon-heart">
+    <%= I18n.t('rounds.paticipate') %>
+  </button>
+<% end %>

@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   resources :rounds do
     member do
-      get 'score'
-      get 'battle'
+      get 'show_talk'
+      get 'show_wish'
     end
   end
   
@@ -24,4 +24,16 @@ Rails.application.routes.draw do
     end
   end
   resources :sessions,      only: [:new, :create, :destroy]
+  resources :paticipations, only: [      :create, :destroy] do
+    member do
+      post 'approve'
+    end
+  end
+  post 'paticipate_now/:round_id' => 'paticipations#now'
+  resources :talks do
+    member do
+      get 'create'
+      get 'destroy'
+    end
+  end
 end

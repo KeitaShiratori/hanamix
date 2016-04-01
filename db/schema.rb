@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125004244) do
+ActiveRecord::Schema.define(version: 20160401065813) do
 
   create_table "balls", force: :cascade do |t|
     t.string   "title"
@@ -29,15 +29,31 @@ ActiveRecord::Schema.define(version: 20151125004244) do
   add_index "balls", ["round_id"], name: "index_balls_on_round_id"
   add_index "balls", ["user_id"], name: "index_balls_on_user_id"
 
-  create_table "rounds", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "picture"
+  create_table "paticipations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "round_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "type"
   end
+
+  add_index "paticipations", ["round_id"], name: "index_paticipations_on_round_id"
+  add_index "paticipations", ["user_id", "round_id"], name: "index_paticipations_on_user_id_and_round_id", unique: true
+  add_index "paticipations", ["user_id"], name: "index_paticipations_on_user_id"
+
+# Could not dump table "rounds" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+  create_table "talks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "round_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "talks", ["round_id"], name: "index_talks_on_round_id"
+  add_index "talks", ["user_id"], name: "index_talks_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

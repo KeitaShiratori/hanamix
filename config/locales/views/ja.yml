@@ -1,17 +1,17 @@
 ---
 ja:
   static_pages:
-    welcome_message: つかもうぜ！ドラゴンボール！
+    welcome_message: もう盛り上がっちゃってマース♪
     sign_up_now: ユーザ登録
   search:
-    user_or_microposts: ラウンドを検索
+    user_or_microposts: 検索
   layouts:
     home: ホーム
     my_page: マイページ
-    rounds: ラウンド一覧
-    new_round: ラウンド登録
-    edit_round: ラウンド編集
-    round: ラウンド詳細
+    rounds: 0次会一覧
+    new_round: 0次会登録
+    edit_round: 0次会編集
+    round: 0次会詳細
     account: アカウント
     settings: 設定
     search: 検索
@@ -33,39 +33,16 @@ ja:
       new_user : 新規ユーザ登録は
       sign_up_now: コチラ
     side_bar:
-      micropost: つぶやき
-      genki: ゲンキ
       settings: 設定
-      whats_happening: 地球のみんな、オラに元気を分けてくれ！！
-      submit: つぶやく
+    now_on_round:
+      header_name: 開催中の0次会
+      empty: 開催中の0次会はありません
     join_list:
-      tab_name: 参加予定のラウンド
+      tab_name: 参加予定の0次会
+      empty: 参加予定の0次会はありません
     history_list:
-      tab_name: ラウンド履歴
-    micropost_list:
-      posted: ""
-      ago: 前
-      genki: ゲンキ
-      delete: 削除
-      you_sure: 削除してもよろしいですか？
-      unretweet: リツイート済
-      retweet: リツイート
-      cancel: ゲンキ済
-      feed:
-        tab_name: タイムライン
-        no_item: あなたがフォローしたユーザのつぶやきとリツイートが表示されます
-      micropost:
-        tab_name: つぶやき履歴
-        no_item: あなたのつぶやき履歴が表示されます
-      following: 
-        tab_name: フォロー中
-        no_item: あなたがフォローしたユーザが表示されます
-      followers: 
-        tab_name: フォロワー
-        no_item: あなたをフォローしたユーザが表示されます
-    follow: 
-      follow: フォローする
-      cancel: フォロー済
+      tab_name: 0次会履歴
+      empty: 参加した0次会はありません
     index:
       users:
         tab_name: ユーザ
@@ -74,17 +51,47 @@ ja:
         tab_name: つぶやき
         no_item: 条件に一致する つぶやきが見つかりませんでした
   rounds:
-    join: このラウンドに参加する
-    unjoin: このラウンドに参加予定
-    end_logo: このラウンドは終了しました
+    form:
+      title:
+        placeholder: 50文字以内
+      description:
+        placeholder: 500文字以内
+      term:
+        title: 期間
+      submit: 登録
+    paticipate: この0次会に参加する
+    unpaticipate: 
+      display: この0次会に参加予定
+      delete: 参加予定を取り消す
+    end_logo: この0次会は終了しました
     tool:
       zoom_up:  拡大
       zoom_out: 縮小
       score: ゲット
       battle: バトル
-      reposition: 現在地を更新
-      rader_size: サイズ変更
+      reposition: 経路を表示
+      rader_size: フレーム切替
     show:
+      talk:
+        tab_name: 掲示板
+        empty: メッセージがありません
+        posted: ""
+        ago: 前
+        form:
+          submit: 送信
+          placeholder: メッセージ
+      rader:
+        tab_name: レーダー
       date: 開催日
       time: 時刻
+      paticipate_users: 参加者
+      map_link: 地図
+      wish_user:
+        tab_name: 参加希望者
+        approval: 承認
+        approved: 承認済み
+        empty: 参加希望はありません
+    edit:
+      btn_name: 0次会編集
+      tool_tip: 0次会編集
       

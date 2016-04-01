@@ -1,0 +1,5 @@
+<% if current_user.paticipate? round %>
+  <%= render 'shared/round_tool', round: round %>
+<% else %>
+  <%= render 'shared/round_paticipate_now', round: round %>
+<% end %>

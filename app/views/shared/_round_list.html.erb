@@ -1,12 +1,22 @@
 <div class="round-list-item">
   <%= link_to round do %>
-    <% image_path = "sample_event_0" + cnt.to_s + ".jpg" %>
-    <%= image_tag(image_path, :class => "round-image") %>
+    <% if round.picture.present? %>
+      <%= image_tag round.picture.url, :class => "round-image", :size => '300x169' %>
+    <% else %>
+      <%= image_tag "intro.jpg", :class => "round-image", :size => '300x169' %>
+    <% end %>      
     <div class="round-title">
       <%= round.title %>
     </div>
     <div class="round-start-at">
-      開催日：<%= round.start_at.to_date %>
+      <%= round.end_at.to_s(:round_list) %>まで
     </div>
   <% end %>
+  <div class="round-list-label">
+    <% if round.end_at.future? %>
+      <div class="open btn btn-sm"></div>
+    <% else %>
+      <div class="opened btn btn-sm"></div>
+    <% end %>
+  </div>
 </div>
