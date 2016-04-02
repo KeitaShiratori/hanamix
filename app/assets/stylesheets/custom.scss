@@ -181,6 +181,10 @@ aside {
     padding-top: 15px;
     padding-bottom: 15px;
   }
+  .nav-justified > li, .nav-tabs.nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
 }
 
 @media (min-width: 768px){

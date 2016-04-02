@@ -15,14 +15,7 @@
   <body data-controller="<%= params[:controller] %>" data-action="<%= params[:action] %>" id="page-top" data-spy="scroll" data-target=".navbar-custom">
     <%= render 'layouts/header' %>
     <div class="container">
-      <% flash.each do |message_type, message| %>
-        <!--メッセージをふわっと表示して自然に消すjsメソッド-->
-        <!--http://alfredobarron.github.io/smoke/#/-->
-        <script>
-          $.smkAlert({text:'<%= message %>', type:'<%= message_type %>'});
-        </script>
-      <% end %>
-
+      <%= render 'shared/flash' %>
       <%= yield %>
     </div>
   </body>

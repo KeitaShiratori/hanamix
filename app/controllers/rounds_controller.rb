@@ -1,12 +1,6 @@
 class RoundsController < ApplicationController
   before_action :set_round, only: [:show, :edit, :update, :destroy, :show_talk, :show_wish]
 
-  # GET /rounds
-  # GET /rounds.json
-  def index
-    @rounds = Round.all
-  end
-
   # GET /rounds/1
   # GET /rounds/1.json
   def show
@@ -130,14 +124,11 @@ private
     @round = Round.find(params[:id])
   end
 
-  def score_req
-    params.permit(:lat, :lng, :user_id, :id)
-  end
-  
   # Never trust parameters from the scary internet, only allow the white list through.
   def round_params
     params.require(:round).permit(:title, :description, :picture)
   end
+
   def r_params
     params.require(:r).permit(:term, :lat, :lng)
   end

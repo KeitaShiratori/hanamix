@@ -4,12 +4,12 @@ class TalksController < ApplicationController
   def create
     @talk = current_user.talks.build(talk_params)
     if @talk.save
-      flash[:success] = "talk created!"
+      flash[:success] = "投稿しました"
       @round = Round.find(@talk.round_id)
       @talk_list = @round.talks.order(:created_at).reverse_order
       @talk  = Talk.new :round_id => @round.id
     else
-      flash[:danger] = 'この内容は登録できません'
+      flash[:danger] = '投稿できませんでした'
     end
     # redirect_to request.referrer
   end

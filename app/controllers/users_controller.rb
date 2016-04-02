@@ -54,16 +54,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def join_list
-    now = Time.current
-    @join_list = @user.paticipate_rounds.where("rounds.start_at >= ?", now)
-  end
-  
-  def history_list
-    now = Time.current
-    @history_list = @user.paticipate_rounds.where("rounds.end_at <= ?", now)
-  end
-
 private
 
   # get parameters for sinup

@@ -1,7 +1,10 @@
 $("#talk-area").html("<%= escape_javascript(render('shared/talk_list', talks: @talk_list)) %>");
 $("#talk-area").removeClass("hidden");
-$("#rader-area").addClass("hidden");
 $(".tabmenu").removeClass("active");
 $("#talk-tab").addClass("active");
 $("#talk-form").removeClass("hidden");
-$("#round-tool").addClass("hidden");
+
+<% flash.each do |message_type, message| %>
+  $.smkAlert({text:'<%= message %>', type:'<%= message_type %>'});
+  <% flash.discard message_type %>
+<% end %>

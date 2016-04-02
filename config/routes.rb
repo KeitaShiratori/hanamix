@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  get 'balls/create'
-  get 'balls/edit'
-  get 'balls/delete'
-  get 'balls/show'
-
-  resources :rounds do
+  resources :rounds, only: [:show, :new, :create, :edit, :update, :destroy]  do
     member do
       get 'show_talk'
       get 'show_wish'
@@ -17,14 +12,9 @@ Rails.application.routes.draw do
   post   'login'           => 'sessions#create'
   delete 'logout'          => 'sessions#destroy'
 
-  resources :users do
-    member do
-      get 'join_list'
-      get 'history_list'
-    end
-  end
-  resources :sessions,      only: [:new, :create, :destroy]
-  resources :paticipations, only: [      :create, :destroy] do
+  resources :users, only: [:show, :new, :create, :edit, :update]
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :paticipations, only: [:create, :destroy] do
     member do
       post 'approve'
     end

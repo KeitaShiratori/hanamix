@@ -1,33 +1,25 @@
 <div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
     <%= render 'shared/round_card', round: @round %>
     
-    <% if @round.start_at.future? %>
-      <!-- ラウンド開催前の場合表示 -->
-      <div id="paticipate-form">
-        <%= render 'shared/round_paticipate_form', round: @round %>
-      </div>
-    <% elsif @round.end_at.future? %>
+    <% if @round.end_at.future? %>
       <!-- ラウンド開催中に表示 -->
       <%= render 'shared/round_tool_form', round: @round %>
     <% else %>
       <!-- ラウンド終了後に表示 -->
       <%= render 'shared/round_end_logo', round: @round %>
     <% end %>
+  	<% if current_user == @round.owner %>
+  	  <!-- 主催者の場合のみ表示 -->
+  	  <div id="wish-user-area">
+        <h2><%= I18n.t('rounds.show.wish_user.tab_name') %></h2>
+  	    <%= render('shared/wish_users_list', wish_users: @wish_users) %>
+  	  </div>
+  	<% end %>
   </div>
-  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-    <ul class="nav nav-tabs nav-justified">
-    	<li role="presentation" class="tabmenu active" id="talk-tab">
-    	  <%= link_to I18n.t('rounds.show.talk.tab_name'), show_talk_round_path(:id=>@round.id), remote: true %>
-    	</li>
-    	<% if current_user == @round.owner %>
-    	  <!-- 主催者の場合のみ表示 -->
-      	<li role="presentation" class="tabmenu" id="wish-tab">
-      	  <%= link_to I18n.t('rounds.show.wish_user.tab_name'), show_wish_round_path(:id=>@round.id), remote: true %>
-      	</li>
-    	<% end %>
-    </ul>
-    <div id="content-area">
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+    <div id="talk-area">
+      <h2><%= I18n.t('rounds.show.talk.tab_name') %></h2>
       <%= render 'shared/talk_list', talks: @talk_list %>
     </div>
   </div>
