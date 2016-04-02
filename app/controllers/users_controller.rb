@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :destroy, :join_list, :history_list]
+  before_action :set_user, only: [:edit, :update, :destroy]
   
   def show
     if logged_in?
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:info] =  I18n.t('users_create.log_in_as.pre') + @user.name + I18n.t('users_create.log_in_as.suf')
+      flash[:success] =  I18n.t('users_create.log_in_as.pre') + @user.name + I18n.t('users_create.log_in_as.suf')
       session[:user_id] = @user.id
       redirect_to root_url
     else
@@ -27,16 +27,15 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = set_user
     if current_user != @user
-      flash.now[:danger] = '不正なページ遷移を検出しました'
+      flash[:danger] = '不正なページ遷移を検出しました'
       redirect_to root_url
     end
   end
 
   def update
     if !check_old_pwd
-      flash.now[:danger] = 'パスワードが一致しません'
+      flash[:danger] = 'パスワードが一致しません'
       return render 'edit'
     end
     
@@ -45,11 +44,11 @@ class UsersController < ApplicationController
 
     if @user.update(profile)
       # 保存に成功した場合はトップページへリダイレクト
-      flash.now[:info] = 'メッセージを編集しました'
+      flash[:success] = 'メッセージを編集しました'
       redirect_to @user
     else
       # 保存に失敗した場合は編集画面へ戻す
-      flash.now[:danger] = 'この内容は登録できません'
+      flash[:danger] = 'この内容は登録できません'
       render 'edit'
     end
   end
