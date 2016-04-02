@@ -4,7 +4,9 @@
     
     <% if @round.end_at.future? %>
       <!-- ラウンド開催中に表示 -->
-      <%= render 'shared/round_tool_form', round: @round %>
+      <div id="round-tool-form">
+        <%= render 'shared/round_tool_form', round: @round %>
+      </div>
     <% else %>
       <!-- ラウンド終了後に表示 -->
       <%= render 'shared/round_end_logo', round: @round %>

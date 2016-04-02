@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_many :paticipations, dependent: :destroy
   has_many :paticipate_rounds, through: :paticipations, source: :round
   has_many :wishes, dependent: :destroy
-  has_many :wish_rounds, through: :wishes, source: :round
+  has_many :wishes_rounds, through: :wishes, source: :round
   has_many :approvals, dependent: :destroy
   has_many :approvals_rounds, through: :approvals, source: :round
 

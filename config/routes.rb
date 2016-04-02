@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :new, :create, :edit, :update]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :paticipations, only: [:create, :destroy] do
+  resources :paticipations, only: [] do
     member do
+      post 'wish'
+      delete 'unwish'
       post 'approve'
     end
   end

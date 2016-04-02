@@ -1,0 +1,5 @@
+<% if current_user.wish? round %>
+  <%= render 'shared/wished', round: round %>
+<% else %>
+  <%= render 'shared/wish', round: round %>
+<% end %>
