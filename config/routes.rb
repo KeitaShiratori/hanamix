@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :rounds, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :rounds, only: [:show, :new, :create, :edit, :update, :destroy] do
+    member do 
+      post 'appear_in'
+    end
+  end
 
   root to: 'static_pages#home'
   get 'signup', to: 'users#new'

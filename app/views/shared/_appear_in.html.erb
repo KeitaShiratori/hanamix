@@ -1,0 +1,6 @@
+<!-- Appear.in のビデオチャットルーム作成 -->
+<% if round.appear_in_url.blank? %>
+  <%= link_to appear_in_round_path(id: round.id), method: "post", remote: false do %>
+    <button class="btn btn-signup"><span class="glyphicon glyphicon-plus-facetime-video"></span> オンライン0次会チャットルーム作成</button>
+  <% end %>
+<% end %>

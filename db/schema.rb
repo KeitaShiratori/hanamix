@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401065813) do
+ActiveRecord::Schema.define(version: 20160402120633) do
 
   create_table "balls", force: :cascade do |t|
     t.string   "title"
@@ -41,8 +41,24 @@ ActiveRecord::Schema.define(version: 20160401065813) do
   add_index "paticipations", ["user_id", "round_id"], name: "index_paticipations_on_user_id_and_round_id", unique: true
   add_index "paticipations", ["user_id"], name: "index_paticipations_on_user_id"
 
-# Could not dump table "rounds" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "rounds", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "picture"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "lat"
+    t.string   "lng"
+    t.integer  "user_id"
+    t.string   "appear_in_url"
+  end
+
+  add_index "rounds", ["user_id"], name: "index_rounds_on_user_id"
 
   create_table "talks", force: :cascade do |t|
     t.integer  "user_id"

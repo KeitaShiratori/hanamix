@@ -94,4 +94,11 @@ ja:
     edit:
       btn_name: 0次会編集
       tool_tip: 0次会編集
-      
+    appear_in:
+      success:
+        pre: ""
+        suf: のオンライン0次会の準備ができました
+      error:
+        pre: ""
+        suf: のオンライン0次会でエラーが発生しました
+        

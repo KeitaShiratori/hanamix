@@ -13,6 +13,9 @@
     <% end %>
   	<% if current_user == @round.owner %>
   	  <!-- 主催者の場合のみ表示 -->
+  	  <div id="appear-in">
+    	  <%= render 'shared/appear_in', round: @round %>
+  	  </div>
   	  <div id="wish-user-area">
         <h2><%= I18n.t('rounds.show.wish_user.tab_name') %></h2>
   	    <%= render('shared/wish_users_list', wish_users: @wish_users) %>

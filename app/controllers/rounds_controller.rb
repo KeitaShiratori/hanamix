@@ -1,5 +1,9 @@
 class RoundsController < ApplicationController
-  before_action :set_round, only: [:show, :edit, :update, :destroy]
+  require 'securerandom'
+
+  APPEAR_IN_URL_BASE = "https://appear.in/hanamix_"
+
+  before_action :set_round, only: [:show, :edit, :update, :destroy, :appear_in]
 
   # GET /rounds/1
   def show
@@ -102,6 +106,21 @@ class RoundsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to rounds_url}
       format.json { head :no_content }
+    end
+  end
+
+  def appear_in
+    if @round.appear_in_url.present?
+      return
+    end
+
+    n = 12
+    @round.appear_in_url = APPEAR_IN_URL_BASE + format("%0#{n}d", SecureRandom.random_number(10**n))
+    if @round.save
+      flash[:success] = I18n.t('rounds.appear_in.success.pre') + @round.title + I18n.t('rounds.appear_in.success.suf')
+      redirect_to @round
+    else
+      flash[:success] = I18n.t('rounds.appear_in.error.pre') + @round.title + I18n.t('rounds.appear_in.error.suf')
     end
   end
 
