@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-  resources :rounds, only: [:show, :new, :create, :edit, :update, :destroy]  do
-    member do
-      get 'show_talk'
-      get 'show_wish'
-    end
-  end
-  
+  resources :rounds, only: [:show, :new, :create, :edit, :update, :destroy]
+
   root to: 'static_pages#home'
   get 'signup', to: 'users#new'
   get    'login'           => 'sessions#new'

@@ -1,8 +1,7 @@
 class RoundsController < ApplicationController
-  before_action :set_round, only: [:show, :edit, :update, :destroy, :show_talk, :show_wish]
+  before_action :set_round, only: [:show, :edit, :update, :destroy]
 
   # GET /rounds/1
-  # GET /rounds/1.json
   def show
     if logged_in?
       @talk = Talk.new :round_id => @round.id
@@ -24,15 +23,6 @@ class RoundsController < ApplicationController
     end
   end
 
-  def show_talk
-    @talk_list = @round.talks.order(:created_at).reverse_order
-    @talk = Talk.new :round_id => @round.id
-  end
-
-  def show_wish
-    @wish_users = @round.wish_users
-  end
-
   # GET /rounds/new
   def new
     @round = Round.new
@@ -43,7 +33,6 @@ class RoundsController < ApplicationController
   end
 
   # POST /rounds
-  # POST /rounds.json
   def create
     # ログインしていなかったらホーム画面に戻す
     unless logged_in?
@@ -95,7 +84,6 @@ class RoundsController < ApplicationController
   end
 
   # PATCH/PUT /rounds/1
-  # PATCH/PUT /rounds/1.json
   def update
     respond_to do |format|
       if @round.update(round_params)
@@ -109,7 +97,6 @@ class RoundsController < ApplicationController
   end
 
   # DELETE /rounds/1
-  # DELETE /rounds/1.json
   def destroy
     @round.destroy
     respond_to do |format|
