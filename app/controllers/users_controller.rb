@@ -88,4 +88,8 @@ private
     @now_on_round = @user.paticipate_rounds.where("rounds.start_at <= ?", now).where("rounds.end_at >= ?", now).first
   end
 
+  def history_list
+    now = Time.current
+    @history_list = @user.paticipate_rounds.where("rounds.end_at <= ?", now)
+  end
 end
