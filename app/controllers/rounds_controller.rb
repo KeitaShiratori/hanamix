@@ -72,7 +72,7 @@ class RoundsController < ApplicationController
             a.save!
           end
 
-          flash[:info] = I18n.t('rounds_create.pre') + r.title + I18n.t('rounds_create.suf')
+          flash[:success] = I18n.t('rounds_create.pre') + r.title + I18n.t('rounds_create.suf')
           format.html { redirect_to @round}
           format.json { render :show, status: :created, location: @round}
         else
