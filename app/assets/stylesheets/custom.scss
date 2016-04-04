@@ -135,6 +135,19 @@ aside {
   white-space: pre-line;
 }
 
+.share-buttons{
+  list-style: none;
+  padding: 0;
+
+  li{
+    display: inline;
+  }
+  
+  img{
+    width: 15%;
+  }
+}
+
 @media (max-width: 992px) {
   // スマホ・タブレット共通スタイル
   html{
