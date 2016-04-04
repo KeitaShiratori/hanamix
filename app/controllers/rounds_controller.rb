@@ -39,6 +39,22 @@ class RoundsController < ApplicationController
       redirect_to root_url
     end
     
+    image_magick = Magick::Image.from_blob(params[:round][:picture].tempfile.read).shift
+    image_magick.to_blob
+    puts image_magick.orientation
+    logger.debug image_magick.orientation
+    image_magick = image_magick.auto_orient
+    image_magick.strip!
+    if image_magick.filesize > 1000000
+      puts "1MBより大きい画像"
+      logger.debug "1MBより大きい画像"
+    end
+    image_magick = image_magick.resize_to_fit(300, 169)
+    image_magick = image_magick.resize_to_fill(300, 169)
+    
+    puts image_magick.inspect
+    logger.debug image_magick.inspect
+    
     Round.new do |r|
       r.title       = round_params[:title]
       r.description = round_params[:description]

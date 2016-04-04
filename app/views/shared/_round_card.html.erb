@@ -1,7 +1,7 @@
 <div>
   <div>
     <% if round.picture.present? %>
-      <%= image_tag round.picture.url, :class => "round-image" %>
+      <%= image_tag round.picture_url(:thumb).to_s, :class => "round-image" %>
     <% else %>
       <%= image_tag "intro.jpg", :class => "round-image" %>
     <% end %>

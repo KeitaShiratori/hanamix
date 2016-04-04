@@ -140,15 +140,15 @@
 
 @media (max-width: 992px) {
   // スマホ・タブレット共通スタイル
+  .round-list-item>a>.round-image{
+    height: auto;
+  }
 }
 
 @media (max-width: 768px){
   // スマホ用スタイル
   .round-list-item{
     margin-bottom: 15px;
-  }
-  .round-list-item>a>.round-image{
-    max-height: 120px;
   }
   .round-list-label {
     left:5px;

@@ -1,7 +1,5 @@
-<% if !current_user.guest? %>
-  <% if current_user.approve? round %>
-    <%= render 'shared/round_tool', round: round %>
-  <% else %>
-    <%= render 'shared/wish_form', round: round %>
-  <% end %>
+<% if current_user.approve? round %>
+  <%= render 'shared/round_tool', round: round %>
+<% else %>
+  <%= render 'shared/wish_form', round: round %>
 <% end %>

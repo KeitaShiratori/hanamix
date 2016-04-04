@@ -1,7 +1,7 @@
 <div class="round-list-item">
   <%= link_to round do %>
     <% if round.picture.present? %>
-      <%= image_tag round.picture.url, :class => "round-image", :size => '300x169' %>
+      <%= image_tag round.picture_url(:thumb).to_s, :class => "round-image", :size => '300x169' %>
     <% else %>
       <%= image_tag "intro.jpg", :class => "round-image", :size => '300x169' %>
     <% end %>      

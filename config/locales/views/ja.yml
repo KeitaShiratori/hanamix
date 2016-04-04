@@ -74,7 +74,7 @@ ja:
     show:
       talk:
         tab_name: 掲示板
-        empty: メッセージがありません
+        empty: メッセージはありません
         posted: ""
         ago: 前
         form:

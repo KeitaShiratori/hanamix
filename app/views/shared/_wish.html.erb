@@ -1,5 +1,20 @@
-<%= link_to wish_paticipation_path(round_id: round.id, type: "Wish"), method: "post", remote: true do %>
-  <button class="btn btn-warning btn-paticipate glyphicon glyphicon-heart">
-    <%= I18n.t('rounds.paticipate') %>
-  </button>
+<% if !current_user.guest? %>
+  <%= link_to wish_paticipation_path(round_id: round.id, type: "Wish"), method: "post", remote: true do %>
+    <button class="btn btn-signup btn-paticipate glyphicon glyphicon-heart">
+      <%= I18n.t('rounds.paticipate') %>
+    </button>
+  <% end %>
+<% else %>
+  <script language="javascript">
+  <!--
+  function frmSubmit() {
+    if(confirm("0次会に参加するにはログインしてください")) {
+      document.frm.submit();
+    }
+  }
+  //-->
+  </script>
+  <form method="get" action="../login" name="frm" target="_self">
+    <input class="btn btn-signup btn-paticipate guest-wish-button" type="button" value="<%= I18n.t('rounds.paticipate') %>" onclick="frmSubmit();">
+  </form>
 <% end %>
