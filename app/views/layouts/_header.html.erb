@@ -11,7 +11,7 @@
       <ul class="nav navbar-nav">
         <li class="home nav_menu hidden-sm hidden-xs"><%= link_to I18n.t('layouts.home'), root_path %></li>
         <li class="home nav_menu hidden-lg hidden-md"><%= link_to root_path do %><i class="glyphicon glyphicon-home"></i><% end %></li>
-        <% if logged_in? %>
+        <% if logged_in? && !current_user.guest? %>
           <li class="my_page nav_menu hidden-sm hidden-xs"><%= link_to I18n.t('layouts.my_page'), current_user %></li>
           <li class="my_page nav_menu hidden-lg hidden-md"><%= link_to current_user do %><i class="glyphicon glyphicon-user"></i><% end %></li>
           <li class="new_round nav_menu hidden-sm hidden-xs"><%= link_to I18n.t('layouts.new_round'), new_round_path %></li>

@@ -7,23 +7,19 @@ class RoundsController < ApplicationController
 
   # GET /rounds/1
   def show
-    if logged_in?
-      @talk = Talk.new :round_id => @round.id
-      @user = current_user
-      @owner = @round.owner
-      @wish_users = @round.wish_users
-      @approvals_users = @round.approvals_users
-      @balls = @round.balls
-      puts "@balls.inspect: " + @balls.inspect
-      @talk_list = @round.talks.order(:created_at).reverse_order
-      @hash = Gmaps4rails.build_markers(@balls) do |ball, marker|
-        marker.lat ball.latitude
-        marker.lng ball.longitude
-        marker.infowindow ball.description
-        marker.json({marker_title: ball.title, clickable: false})
-      end
-    else
-      redirect_to root_url
+    @talk = Talk.new :round_id => @round.id
+    @user = current_user
+    @owner = @round.owner
+    @wish_users = @round.wish_users
+    @approvals_users = @round.approvals_users
+    @balls = @round.balls
+    puts "@balls.inspect: " + @balls.inspect
+    @talk_list = @round.talks.order(:created_at).reverse_order
+    @hash = Gmaps4rails.build_markers(@balls) do |ball, marker|
+      marker.lat ball.latitude
+      marker.lng ball.longitude
+      marker.infowindow ball.description
+      marker.json({marker_title: ball.title, clickable: false})
     end
   end
 

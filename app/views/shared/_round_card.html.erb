@@ -50,7 +50,7 @@
         <p>マップを表示</p>
       <% end %>
     <% else %>
-      <p>承認されるまでお待ちください</p>
+      <p><%= I18n.t('rounds.show.map_unapproval') %></p>
     <% end %>
 
     <h2 class="caption"><%= I18n.t('rounds.show.share_buttons') %></h2>

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
   
   def show
-    if logged_in?
+    if logged_in? && !current_user.guest?
       set_user
       history_list
       now_on_round
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    @user = User.new(role: 'user')
   end
 
   def create
@@ -20,14 +20,14 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] =  I18n.t('users_create.log_in_as.pre') + @user.name + I18n.t('users_create.log_in_as.suf')
       session[:user_id] = @user.id
-      redirect_to root_url
+      return_back
     else
       render 'new'
     end
   end
 
   def edit
-    if current_user != @user
+    if current_user != @user || current_user.guest?
       flash[:danger] = '不正なページ遷移を検出しました'
       redirect_to root_url
     end

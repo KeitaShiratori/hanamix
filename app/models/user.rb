@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  ROLE_GUEST = "guest"
+  ROLE_USER  = "user"
+
   before_save { self.email = email.downcase }
   
   # バリデーション定義
@@ -67,4 +70,22 @@ class User < ActiveRecord::Base
     approvals_rounds.include?(round)
   end
 
+  def self.create_guest session
+    @user = User.new do |u|
+      u.name        = I18n.t('users_create_guest.name')
+      u.description = I18n.t('users_create_guest.description')
+      u.location    = I18n.t('users_create_guest.location')
+      u.email       = "guest_#{Time.now.to_i}#{rand(100)}@hanamix.com"
+      u.role        = ROLE_GUEST
+      u.password    = u.email
+      
+      u.save!
+      
+      session[:user_id] = u.id
+    end
+  end
+  
+  def guest?
+    ROLE_GUEST == role
+  end
 end

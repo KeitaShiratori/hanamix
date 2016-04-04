@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    set_request_referrer
   end
   
   def create
@@ -7,7 +8,8 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       flash[:success] =  I18n.t('sessions_create.log_in_as.pre') + @user.name + I18n.t('sessions_create.log_in_as.suf')
-      redirect_to root_url
+      # redirect_to root_url
+      return_back
     else
       flash[:danger] = 'invalid email/password combination'
       render 'new'

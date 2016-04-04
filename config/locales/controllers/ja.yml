@@ -4,12 +4,16 @@ ja:
     log_in_as:
       pre: ようこそ
       suf: さん
+  users_create_guest:
+    name: ゲスト
+    description: ""
+    location: ""
   sessions_create:
     log_in_as:
       pre: ようこそ
       suf: さん
   rounds_create:
-    pre: 新しいラウンド『
+    pre: 新しい0次会『
     suf: 』を登録しました
   rounds_destroy:
     pre: 『
