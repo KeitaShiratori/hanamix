@@ -1,3 +1,11 @@
+<% if @new_wish.present? %>
+  <div>
+    <%= link_to round_path @new_wish[:round_id] do %>
+      <button class="new-wish-present btn btn-signup"><%= I18n.t('static_pages.new_wish') %></button>
+    <% end %>
+  </div>
+<% end %>
+
 <div class="row">
   <% @rounds.each do |r| %>
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">

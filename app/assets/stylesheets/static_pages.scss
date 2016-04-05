@@ -328,7 +328,7 @@
   color: #fff;
   font-weight: 900;
 
-  &:hover, &:active{
+  &:hover, &:active, &:focus{
     background-color: #ff8c8c; //orange
     border-color: #d26969; //chocolate
     color: #fff;
@@ -344,10 +344,25 @@
   border-color: #ff8c8c; //dark-orange
   color: #fff;
 
-  &:hover, &:active{
+  &:hover, &:active, &:focus{
     background-color: #ff8c8c; //orange
     border-color: #d26969; //chocolate
     color: #fff;
+    font-weight: 900;
+  }
+}
+
+.btn-inactive{
+  font-size: 1.2em;
+  color: #eee;
+  background-color: #888;
+  border-color: #666;
+  font-weight: 900;
+
+  &:hover, &:active, &:focus{
+    background-color: #666;
+    border-color: #444;
+    color: #ddd;
     font-weight: 900;
   }
 }

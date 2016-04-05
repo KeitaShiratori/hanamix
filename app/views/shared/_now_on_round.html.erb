@@ -1,9 +1,9 @@
-<h1 class="now-on-round-message"><%= I18n.t('users.now_on_round.header_name') %></h1>
+<h2 class="now-on-round-message"><%= I18n.t('users.now_on_round.header_name') %></h1>
 
 <% if round.present? %>
   <%= render 'shared/round_list', round: round %>
 <% else %>
-  <div>
+  <div class="no-item">
     <h2><%= I18n.t('users.now_on_round.empty') %></h2>
   </div>
 <% end %>

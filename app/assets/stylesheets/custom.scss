@@ -47,6 +47,34 @@ a {
     color: $chocolate;
   }
 }
+
+
+/* common css */
+
+#talk-area>h2,
+#wish-user-area>h2,
+#now_on_round>h2,
+#round_list>h2{
+  font-weight: 900;
+  font-size: 1.6em;
+  border-radius: 12px 12px 0 0;
+  padding: 10px 0 20px 0;
+  margin: 0 0 10px 0;
+  border: 3px solid #fed4d4;
+}
+
+.no-item{
+  border: 1px solid #ccc;
+  min-height: 5vh;
+  margin-botom: 40px
+}
+
+.new-wish-present{
+  width: 100%;
+  margin: 20px 0;
+}
+
+
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
@@ -144,7 +172,7 @@ aside {
   }
   
   img{
-    width: 15%;
+    width: 10%;
   }
 }
 
@@ -200,7 +228,6 @@ aside {
   }
   .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10{
     padding-left: 15px;
-    margin-right: -15px;
   }
 }
 

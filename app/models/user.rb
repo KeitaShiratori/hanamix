@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   # リレーションシップ定義
   has_many :balls
   has_many :talks
+  has_many :owned_rounds, class_name: "Round", foreign_key: "user_id"
+  has_many :owned_rounds_wishes, through: :owned_rounds, source: :wishes
   has_many :paticipations, dependent: :destroy
   has_many :paticipate_rounds, through: :paticipations, source: :round
   has_many :wishes, dependent: :destroy

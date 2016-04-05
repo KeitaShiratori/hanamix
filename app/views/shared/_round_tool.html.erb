@@ -1,12 +1,14 @@
 <div id="round-tool" class="tool">
   <% if current_user.approve? round %>
     <%= link_to "http://maps.google.com/maps?q=#{round.lat},#{round.lng}", target: "_map" do %>
-      <button class="btn btn-signup"><span class="glyphicon glyphicon-plus-map"></span> 地図を表示</button>
+      <button class="btn btn-signup"><span class="glyphicon glyphicon-plus-map"></span> <%= I18n.t('rounds.show.map_approval') %></button>
     <% end %>
     <% if round.appear_in_url.present? %>
       <%= link_to round.appear_in_url, target: "_appear_in" do %>
         <button class="btn btn-signup"><span class="glyphicon glyphicon-plus-facetime-video"></span> オンライン0次会</button>
       <% end %>
+    <% else %>
+      <button class="btn btn-inactive"><span class="glyphicon glyphicon-plus-facetime-video"></span> オンライン0次会</button>
     <% end %>
   <% end %>
 </div>

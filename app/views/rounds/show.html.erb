@@ -13,7 +13,7 @@
     <% end %>
   	<% if current_user == @round.owner %>
   	  <!-- 主催者の場合のみ表示 -->
-  	  <div id="appear-in">
+  	  <div id="appear-in" class="appear_in">
     	  <%= render 'shared/appear_in', round: @round %>
   	  </div>
   	  <div id="wish-user-area">

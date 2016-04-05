@@ -3,6 +3,7 @@ ja:
   static_pages:
     welcome_message: もう盛り上がっちゃってマース♪
     sign_up_now: ユーザ登録
+    new_wish: 新しい参加希望者がいます
   search:
     user_or_microposts: 検索
   layouts:
@@ -86,7 +87,8 @@ ja:
       time: 時刻
       paticipate_users: 参加者
       map_link: 地図
-      map_unapproval: 参加承認されると表示できます
+      map_approval: 地図を表示
+      map_unapproval: 参加承認されると地図を表示できます
       share_buttons: シェアする
       wish_user:
         tab_name: 参加希望者
