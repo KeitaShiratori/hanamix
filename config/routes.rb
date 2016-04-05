@@ -21,10 +21,6 @@ Rails.application.routes.draw do
     end
   end
   post 'paticipate_now/:round_id' => 'paticipations#now'
-  resources :talks do
-    member do
-      get 'create'
-      get 'destroy'
-    end
-  end
+  resources :talks, only: [:create]
+
 end

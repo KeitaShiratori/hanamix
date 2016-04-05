@@ -13,8 +13,7 @@ class RoundsController < ApplicationController
     @wish_users = @round.wish_users
     @approvals_users = @round.approvals_users
     @balls = @round.balls
-    puts "@balls.inspect: " + @balls.inspect
-    @talk_list = @round.talks.order(:created_at).reverse_order
+    @talk_list = @round.talks.order(:created_at).reverse_order.page(params[:page])
     @hash = Gmaps4rails.build_markers(@balls) do |ball, marker|
       marker.lat ball.latitude
       marker.lng ball.longitude

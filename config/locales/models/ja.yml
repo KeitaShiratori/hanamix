@@ -4,7 +4,8 @@ ja:
     models:
       user: ユーザ
       ball: ボール
-      round: ラウンド
+      round: 0次会
+      talk: メッセージ
     attributes:
       user:
         name: ユーザ名
